@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Oracle错误ORA-00913:值过多 | 房鹏程的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Welcome to my blog" />
+  
+  <meta name="description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle错误ORA-00913:值过多">
+<meta property="og:url" content="http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/index.html">
+<meta property="og:site_name" content="房鹏程的博客">
+<meta property="og:description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-03T06:54:28.000Z">
+<meta property="article:modified_time" content="2020-06-03T06:56:46.603Z">
+<meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Oracle">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">My blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a target="_blank" href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a target="_blank" href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        My blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        满招损 谦受益
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="主页" target="_blank" href="//">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/15538373365">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5139165230">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="bilibili" target="_blank" href="//space.bilibili.com/4427375">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Oracle错误ORA-00913-值过多" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Oracle错误ORA-00913:值过多
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-06-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="ORA-00913-值过多"><a href="#ORA-00913-值过多" class="headerlink" title="ORA-00913:值过多"></a>ORA-00913:值过多</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Insert into XX(?,?,?) values(?,?,?)</span><br><span class="line">上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年06月03日 14:56</p>
+        <p>原始链接： <a class="post-url" href="/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" title="Oracle错误ORA-00913:值过多">http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&title=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&pic=images/Oracle.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&title=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Oracle/" class="color2">Oracle</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ORA-00913-值过多"><span class="post-toc-text">ORA-00913:值过多</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">虚拟机与本机的几种ip连接方式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 房鹏程<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://fangpengcheng.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/JDBC/">JDBC</a><a class="category-link" href="/categories/List/">List</a><a class="category-link" href="/categories/Map/">Map</a><a class="category-link" href="/categories/Maven/">Maven</a><a class="category-link" href="/categories/Maven/Java/">Java</a><a class="category-link" href="/categories/OA/">OA</a><a class="category-link" href="/categories/frame%E5%92%8Ciframe/">frame和iframe</a><a class="category-link" href="/categories/ifream/">ifream</a><a class="category-link" href="/categories/json/">json</a><a class="category-link" href="/categories/log4j/">log4j</a><a class="category-link" href="/categories/request/">request</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0/">上传</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0%E3%80%81%E5%88%A0%E9%99%A4/">上传、删除</a><a class="category-link" href="/categories/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a><a class="category-link" href="/categories/%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E6%B1%89%E5%8C%96/">下载、安装、汉化</a><a class="category-link" href="/categories/%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/">九九乘法表</a><a class="category-link" href="/categories/%E5%88%B7%E6%96%B0/">刷新</a><a class="category-link" href="/categories/%E5%8D%B8%E8%BD%BD/">卸载</a><a class="category-link" href="/categories/%E5%AE%89%E8%A3%85/">安装</a><a class="category-link" href="/categories/%E5%BE%AA%E7%8E%AF/">循环</a><a class="category-link" href="/categories/%E6%8E%92%E5%BA%8F/">排序</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5/">数据库连接</a><a class="category-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a><a class="category-link" href="/categories/%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE/">标签设置</a><a class="category-link" href="/categories/%E6%B1%89%E5%8C%96/">汉化</a><a class="category-link" href="/categories/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/">清理缓存</a><a class="category-link" href="/categories/%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6/">节点事件</a><a class="category-link" href="/categories/%E8%A1%A8%E5%8D%95/">表单</a><a class="category-link" href="/categories/%E9%80%92%E5%BD%92/">递归</a><a class="category-link" href="/categories/%E9%87%8D%E8%BD%BD/">重载</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 12.5px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Html/" style="font-size: 17.5px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.25px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.5px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.75px;">Mysql</a> <a href="/tags/OA/" style="font-size: 15px;">OA</a> <a href="/tags/Oracle/" style="font-size: 16.25px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 16.25px;">SQL</a> <a href="/tags/SVN/" style="font-size: 15px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.25px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.25px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 11.25px;">日志</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 12.5px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Html/" style="font-size: 17.5px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.25px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.5px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.75px;">Mysql</a> <a href="/tags/OA/" style="font-size: 15px;">OA</a> <a href="/tags/Oracle/" style="font-size: 16.25px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 16.25px;">SQL</a> <a href="/tags/SVN/" style="font-size: 15px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.25px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.25px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 11.25px;">日志</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<!-- 爱心特效 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clicksocialvalue.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="/js/snow.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+</body>
+</html>

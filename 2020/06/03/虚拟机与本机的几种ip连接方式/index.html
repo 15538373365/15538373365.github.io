@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>虚拟机与本机的几种ip连接方式 | 房鹏程的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Welcome to my blog" />
+  
+  <meta name="description" content="桥接模式(将虚拟机直接连接到外部网络)所谓的桥连接，就是说虚拟机的网络ip地址与我们的主机（母机）的ip在一个网段，加入我们windows机器的ip是192.168.172.11，那虚拟机的ip也将在92.168.172.XXX这个网络，这样虚拟机虽然可以直接上网也可以与主机互通但是可能会造成较多的网络ip冲突！   NAT模式(与虚拟机共享ip地址)仅主机模式 host-only模式注意  如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟机与本机的几种ip连接方式">
+<meta property="og:url" content="http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:site_name" content="房鹏程的博客">
+<meta property="og:description" content="桥接模式(将虚拟机直接连接到外部网络)所谓的桥连接，就是说虚拟机的网络ip地址与我们的主机（母机）的ip在一个网段，加入我们windows机器的ip是192.168.172.11，那虚拟机的ip也将在92.168.172.XXX这个网络，这样虚拟机虽然可以直接上网也可以与主机互通但是可能会造成较多的网络ip冲突！   NAT模式(与虚拟机共享ip地址)仅主机模式 host-only模式注意  如果">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.png">
+<meta property="og:image" content="http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%BC%96%E8%BE%91%E5%99%A8.png">
+<meta property="article:published_time" content="2020-06-03T01:21:22.000Z">
+<meta property="article:modified_time" content="2020-06-03T02:28:46.521Z">
+<meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Vmware">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">My blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a target="_blank" href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a target="_blank" href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        My blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        满招损 谦受益
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="主页" target="_blank" href="//">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/15538373365">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5139165230">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="bilibili" target="_blank" href="//space.bilibili.com/4427375">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-虚拟机与本机的几种ip连接方式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      虚拟机与本机的几种ip连接方式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-06-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="桥接模式-将虚拟机直接连接到外部网络"><a href="#桥接模式-将虚拟机直接连接到外部网络" class="headerlink" title="桥接模式(将虚拟机直接连接到外部网络)"></a>桥接模式(将虚拟机直接连接到外部网络)</h3><p>所谓的桥连接，就是说虚拟机的网络ip地址与我们的主机（母机）的ip在一个网段，加入我们windows机器的ip是192.168.172.11，那虚拟机的ip也将在92.168.172.XXX这个网络，这样虚拟机虽然可以直接上网也可以与主机互通但是可能会造成较多的网络ip冲突！</p>
+<img src="虚拟机与本机的几种ip连接方式/桥接模式.png">
+
+<h3 id="NAT模式-与虚拟机共享ip地址"><a href="#NAT模式-与虚拟机共享ip地址" class="headerlink" title="NAT模式(与虚拟机共享ip地址)"></a>NAT模式(与虚拟机共享ip地址)</h3><h3 id="仅主机模式-host-only模式"><a href="#仅主机模式-host-only模式" class="headerlink" title="仅主机模式 host-only模式"></a>仅主机模式 host-only模式</h3><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><img src="虚拟机与本机的几种ip连接方式/虚拟机网络编辑器.png">
+
+<p>如果是笔记本电脑，虚拟机会连接无线网卡和有线网卡，桥接模式一定不要设置为自动</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年06月03日 10:28</p>
+        <p>原始链接： <a class="post-url" href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" title="虚拟机与本机的几种ip连接方式">http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/&title=《虚拟机与本机的几种ip连接方式》 — 房鹏程的博客&pic=images/xnj.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/&title=《虚拟机与本机的几种ip连接方式》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟机与本机的几种ip连接方式》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Vmware/" class="color2">Vmware</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#桥接模式-将虚拟机直接连接到外部网络"><span class="post-toc-text">桥接模式(将虚拟机直接连接到外部网络)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NAT模式-与虚拟机共享ip地址"><span class="post-toc-text">NAT模式(与虚拟机共享ip地址)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#仅主机模式-host-only模式"><span class="post-toc-text">仅主机模式 host-only模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意"><span class="post-toc-text">注意</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Oracle错误ORA-00913:值过多
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/06/02/Linux%E7%B3%BB%E7%BB%9F%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Linux系统虚拟机安装</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 房鹏程<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://fangpengcheng.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/JDBC/">JDBC</a><a class="category-link" href="/categories/List/">List</a><a class="category-link" href="/categories/Map/">Map</a><a class="category-link" href="/categories/Maven/">Maven</a><a class="category-link" href="/categories/Maven/Java/">Java</a><a class="category-link" href="/categories/OA/">OA</a><a class="category-link" href="/categories/frame%E5%92%8Ciframe/">frame和iframe</a><a class="category-link" href="/categories/ifream/">ifream</a><a class="category-link" href="/categories/json/">json</a><a class="category-link" href="/categories/log4j/">log4j</a><a class="category-link" href="/categories/request/">request</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0/">上传</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0%E3%80%81%E5%88%A0%E9%99%A4/">上传、删除</a><a class="category-link" href="/categories/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a><a class="category-link" href="/categories/%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E6%B1%89%E5%8C%96/">下载、安装、汉化</a><a class="category-link" href="/categories/%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/">九九乘法表</a><a class="category-link" href="/categories/%E5%88%B7%E6%96%B0/">刷新</a><a class="category-link" href="/categories/%E5%8D%B8%E8%BD%BD/">卸载</a><a class="category-link" href="/categories/%E5%AE%89%E8%A3%85/">安装</a><a class="category-link" href="/categories/%E5%BE%AA%E7%8E%AF/">循环</a><a class="category-link" href="/categories/%E6%8E%92%E5%BA%8F/">排序</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5/">数据库连接</a><a class="category-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a><a class="category-link" href="/categories/%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE/">标签设置</a><a class="category-link" href="/categories/%E6%B1%89%E5%8C%96/">汉化</a><a class="category-link" href="/categories/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/">清理缓存</a><a class="category-link" href="/categories/%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6/">节点事件</a><a class="category-link" href="/categories/%E8%A1%A8%E5%8D%95/">表单</a><a class="category-link" href="/categories/%E9%80%92%E5%BD%92/">递归</a><a class="category-link" href="/categories/%E9%87%8D%E8%BD%BD/">重载</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 12.5px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Html/" style="font-size: 17.5px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.25px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.5px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.75px;">Mysql</a> <a href="/tags/OA/" style="font-size: 15px;">OA</a> <a href="/tags/Oracle/" style="font-size: 16.25px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 16.25px;">SQL</a> <a href="/tags/SVN/" style="font-size: 15px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.25px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.25px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 11.25px;">日志</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 12.5px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Html/" style="font-size: 17.5px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.25px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.5px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.75px;">Mysql</a> <a href="/tags/OA/" style="font-size: 15px;">OA</a> <a href="/tags/Oracle/" style="font-size: 16.25px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 16.25px;">SQL</a> <a href="/tags/SVN/" style="font-size: 15px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.25px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.25px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 11.25px;">日志</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<!-- 爱心特效 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clicksocialvalue.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="/js/snow.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+</body>
+</html>
