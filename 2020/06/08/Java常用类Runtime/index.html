@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>房鹏程的博客</title>
+  <title>Java常用类Runtime | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/page/17/index.html">
+  <meta name="description" content="Runtime类是什么？每个java程序在运行时相当于启动了一个JVM进程，每个JVM进程都对应一个RunTime实例。此实例是JVM负责实例化的，所以我们不能实例化一个RunTime对象，只能通过getRuntime() 获取当前运行的Runtime对象的引用。一旦得到了一个当前的Runtime对象的引用，就可以调用Runtime对象的方法去查看Java虚拟机的状态以及控制虚拟机的行为。 使用e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用类Runtime">
+<meta property="og:url" content="http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="Runtime类是什么？每个java程序在运行时相当于启动了一个JVM进程，每个JVM进程都对应一个RunTime实例。此实例是JVM负责实例化的，所以我们不能实例化一个RunTime对象，只能通过getRuntime() 获取当前运行的Runtime对象的引用。一旦得到了一个当前的Runtime对象的引用，就可以调用Runtime对象的方法去查看Java虚拟机的状态以及控制虚拟机的行为。 使用e">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-08T09:31:36.000Z">
+<meta property="article:modified_time" content="2020-06-08T09:48:10.312Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,204 +118,120 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-新建一个简单的maven项目" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Java常用类Runtime" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/29/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84maven%E9%A1%B9%E7%9B%AE/"  >新建一个简单的maven项目</a>
+    <h1 class="post-title" itemprop="name">
+      Java常用类Runtime
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-06-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Maven/">Maven</a>
-                  
-                  <a href="/categories/Java/">Java</a>
-                  
-              </span>
-          
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2019/10/29/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84maven%E9%A1%B9%E7%9B%AE/" >
-                
-                <img src="http://fangpengcheng.com/images/maven.png" alt="新建一个简单的maven项目" title="新建一个简单的maven项目">
-                
+            
+            <h3 id="Runtime类是什么？"><a href="#Runtime类是什么？" class="headerlink" title="Runtime类是什么？"></a>Runtime类是什么？</h3><p>每个java程序在运行时相当于启动了一个JVM进程，每个JVM进程都对应一个RunTime实例。此实例是JVM负责实例化的，所以我们不能实例化一个RunTime对象，只能通过getRuntime() 获取当前运行的Runtime对象的引用。一旦得到了一个当前的Runtime对象的引用，就可以调用Runtime对象的方法去查看Java虚拟机的状态以及控制虚拟机的行为。</p>
+<h3 id="使用exec方法执行本地程序"><a href="#使用exec方法执行本地程序" class="headerlink" title="使用exec方法执行本地程序"></a>使用exec方法执行本地程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Runtime runtime &#x3D;Runtime.getRuntime();</span><br><span class="line">try &#123;</span><br><span class="line">    Process exec &#x3D; runtime.exec(&quot;notpead.ext&quot;);</span><br><span class="line">    Thread.sleep(2000);</span><br><span class="line">    exec.destroy();</span><br><span class="line">&#125; catch (IOException | InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="产生大量垃圾"><a href="#产生大量垃圾" class="headerlink" title="产生大量垃圾"></a>产生大量垃圾</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;[1]返回 Java 虚拟机试图使用的最大内存量：&quot;+runtime.maxMemory());&#x2F;&#x2F;默认当前物理内存的4分之一</span><br><span class="line">System.out.println(&quot;[1]返回 Java 虚拟机中的内存总量：&quot;+runtime.totalMemory());&#x2F;&#x2F;默认为物理内存的六十四分之一</span><br><span class="line">System.out.println(&quot;[1]返回 Java 虚拟机中的空闲内存量:&quot;+runtime.freeMemory());</span><br><span class="line"></span><br><span class="line">String mag &#x3D; &quot;asdfg&quot;;</span><br><span class="line">for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">    mag +&#x3D;mag +i+&quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;[2]返回 Java 虚拟机试图使用的最大内存量：&quot;+runtime.maxMemory());&#x2F;&#x2F;默认当前物理内存的4分之一</span><br><span class="line">System.out.println(&quot;[2]返回 Java 虚拟机中的内存总量：&quot;+runtime.totalMemory());&#x2F;&#x2F;默认为物理内存的六十四分之一</span><br><span class="line">System.out.println(&quot;[2]返回 Java 虚拟机中的空闲内存量:&quot;+runtime.freeMemory());</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[1]返回 Java 虚拟机试图使用的最大内存量：2835349504</span><br><span class="line">[1]返回 Java 虚拟机中的内存总量：192937984</span><br><span class="line">[1]返回 Java 虚拟机中的空闲内存量:190924680</span><br><span class="line">[2]返回 Java 虚拟机试图使用的最大内存量：2835349504</span><br><span class="line">[2]返回 Java 虚拟机中的内存总量：192937984</span><br><span class="line">[2]返回 Java 虚拟机中的空闲内存量:139910440</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="产生的异常"><a href="#产生的异常" class="headerlink" title="产生的异常"></a>产生的异常</h3><p>循环次数太多的话，会让垃圾太多，产生内存溢出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space</span><br></pre></td></tr></table></figure>
+
+<h3 id="手动处理垃圾"><a href="#手动处理垃圾" class="headerlink" title="手动处理垃圾"></a>手动处理垃圾</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runtime.gc();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[1]返回 Java 虚拟机试图使用的最大内存量：2835349504</span><br><span class="line">[1]返回 Java 虚拟机中的内存总量：192937984</span><br><span class="line">[1]返回 Java 虚拟机中的空闲内存量:190924680</span><br><span class="line">[2]返回 Java 虚拟机试图使用的最大内存量：2835349504</span><br><span class="line">[2]返回 Java 虚拟机中的内存总量：243269632</span><br><span class="line">[2]返回 Java 虚拟机中的空闲内存量:226072584</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年06月08日 17:48</p>
+        <p>原始链接： <a class="post-url" href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" title="Java常用类Runtime">http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                如何新建一个maven项目
-    
+        </footer>
+    </div>
+</div>
 
-
-    
-
-
-    
-
-
-pom.xml错误
-
-
-
-新建完成后的目录结构
-
-
-
-增加src/main/webapp的web.xml
-
-
-
-
-
-
-注意事项如果是需要部署的项目，则需要打包成war类型，如果只是内部调用或者是作服务使用，则推荐打包成jar类型。
-
-            </p>
-        </div>
       
+        
+            
+
         
     </div>
     <footer class="article-footer">
         
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-10-29</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Maven/" class="color1">Maven</a>
-      
-  </li>
-
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/&title=《Java常用类Runtime》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/&title=《Java常用类Runtime》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java常用类Runtime》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
         </ul>
-        
-            <a href="/2019/10/29/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84maven%E9%A1%B9%E7%9B%AE/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" alt="微信分享二维码">
+</div>
 
+<div class="mask"></div>
 
-  
-    <article id="post-JavaScript刷新页面的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/29/JavaScript%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/"  >JavaScript刷新页面的方法</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/刷新/">刷新</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/10/29/JavaScript%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/" >
-                
-                <img src="http://fangpengcheng.com/images/JavaScript.png" alt="JavaScript刷新页面的方法" title="JavaScript刷新页面的方法">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                JavaScript如何刷新页面指定去某页123451.history.go(-1) &#x2F;&#x2F;-1后退   2.history.go(1) &#x2F;&#x2F;1前进 3.location.assign(location)&#x2F;&#x2F;当locating内为地址时跳转到该地址4.location&#x3D;location &#x2F;&#x...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
         
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-10-29</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/10/29/JavaScript%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%96%B9%E6%B3%95/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Java连接Oracle数据库" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/28/Java%E8%BF%9E%E6%8E%A5Oracle%E6%95%B0%E6%8D%AE%E5%BA%93/"  >Java连接Oracle数据库</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/数据库连接/">数据库连接</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/10/28/Java%E8%BF%9E%E6%8E%A5Oracle%E6%95%B0%E6%8D%AE%E5%BA%93/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java连接Oracle数据库" title="Java连接Oracle数据库">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Java如何连接Oracle数据库导入ojdbc5.jar
-代码1234567891011121314&#x2F;&#x2F; 1.设置驱动Class.forName(&quot;oracle.jdbc.driver.OracleDriver&quot;);&#x2F;&#x2F; 2.获取数据库连接(&quot;jdbc:oracle:thin:@地址:oracle端口...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-10-28</li>
             
             
   <li class="article-footer-tags">
@@ -320,163 +239,35 @@ pom.xml错误
       
     <a href="/tags/Java/" class="color5">Java</a>
       
-    <a href="/tags/Oracle/" class="color2">Oracle</a>
-      
   </li>
 
         </ul>
-        
-            <a href="/2019/10/28/Java%E8%BF%9E%E6%8E%A5Oracle%E6%95%B0%E6%8D%AE%E5%BA%93/#more" class="article-more-link" >more&gt;&gt;</a>
         
     </footer>
   </div>
 </article>
 
 
-  
-    <article id="post-Oracle-11g的卸载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Runtime类是什么？"><span class="post-toc-text">Runtime类是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用exec方法执行本地程序"><span class="post-toc-text">使用exec方法执行本地程序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#产生大量垃圾"><span class="post-toc-text">产生大量垃圾</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#产生的异常"><span class="post-toc-text">产生的异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#手动处理垃圾"><span class="post-toc-text">手动处理垃圾</span></a></li></ol>
+        </nav>
+    </aside>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/28/Oracle-11g%E7%9A%84%E5%8D%B8%E8%BD%BD/"  >Oracle-11g的卸载</a>
-    </h1>
-  
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/卸载/">卸载</a>
-                  
-              </span>
-          
-      </header>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java常用类AutoCloseable</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/10/28/Oracle-11g%E7%9A%84%E5%8D%B8%E8%BD%BD/" >
-                
-                <img src="http://fangpengcheng.com/images/Oracle.png" alt="Oracle-11g的卸载" title="Oracle-11g的卸载">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Oracle-11g的卸载卸载1.停止服务
-
-
-
-2.运行Universal Installer
-
-
-
-
-
-
-3.删除注册表位置分别为：1.HKEY_LOCAL_MACHINE\SOFTWARE2.HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services3.HKEY_LOCAL_MACHINE\SYSTEM\CurrentC...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-10-28</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Oracle/" class="color2">Oracle</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/10/28/Oracle-11g%E7%9A%84%E5%8D%B8%E8%BD%BD/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Oracle-11g数据库的安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/28/Oracle-11g%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/"  >Oracle-11g数据库的安装</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/安装/">安装</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/10/28/Oracle-11g%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/" >
-                
-                <img src="http://fangpengcheng.com/images/Oracle.png" alt="Oracle-11g数据库的安装" title="Oracle-11g数据库的安装">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Oracle-11g版本数据库的安装安装1.window10修改安装配置文件
-
-
-1234567891011&#x2F;&#x2F;OPERATING_SYSTEM RELEASE&#x3D;&quot;6.1&quot;改成OPERATING_SYSTEM RELEASE&#x3D;&quot;6.2&quot;&#x2F;&#x2F;NAME VALUE&#x3D;&...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-10-28</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Oracle/" class="color2">Oracle</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/10/28/Oracle-11g%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/16/">&lt;&lt; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/18/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
@@ -508,7 +299,7 @@ pom.xml错误
   var mihoConfig = {
       root: "http://fangpengcheng.com",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 0
   }
@@ -620,6 +411,13 @@ pom.xml错误
 <script src="/js/animate.js"></script>
 
 
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
   </div>
 <!-- 爱心特效 -->
