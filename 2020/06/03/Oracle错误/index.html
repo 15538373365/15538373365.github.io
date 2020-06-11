@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oracle错误ORA-00913:值过多 | 房鹏程的博客</title>
+  <title>Oracle错误 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。">
+  <meta name="description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。  ORA-00911: 无效字符1添加了不能Oracle识别的字符，如:在sql末尾添加的‘;’  jav">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oracle错误ORA-00913:值过多">
-<meta property="og:url" content="http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/index.html">
+<meta property="og:title" content="Oracle错误">
+<meta property="og:url" content="http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。">
+<meta property="og:description" content="ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。  ORA-00911: 无效字符1添加了不能Oracle识别的字符，如:在sql末尾添加的‘;’  jav">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-03T06:54:28.000Z">
-<meta property="article:modified_time" content="2020-06-03T06:56:46.603Z">
+<meta property="article:modified_time" content="2020-06-11T03:23:44.607Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Oracle">
 <meta name="twitter:card" content="summary">
@@ -118,14 +118,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Oracle错误ORA-00913-值过多" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Oracle错误" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Oracle错误ORA-00913:值过多
+      Oracle错误
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -148,10 +148,15 @@
       
             
             <h3 id="ORA-00913-值过多"><a href="#ORA-00913-值过多" class="headerlink" title="ORA-00913:值过多"></a>ORA-00913:值过多</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Insert into XX(?,?,?) values(?,?,?)</span><br><span class="line">上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。</span><br></pre></td></tr></table></figure>
+
+<h3 id="ORA-00911-无效字符"><a href="#ORA-00911-无效字符" class="headerlink" title="ORA-00911: 无效字符"></a>ORA-00911: 无效字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">添加了不能Oracle识别的字符，如:在sql末尾添加的‘;’</span><br></pre></td></tr></table></figure>
+
+<h3 id="java-sql-SQLException-无效的列索引"><a href="#java-sql-SQLException-无效的列索引" class="headerlink" title="java.sql.SQLException: 无效的列索引"></a>java.sql.SQLException: 无效的列索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.sql串的?号数目和提供的变量数目不一致。</span><br><span class="line">2.sql串里的?号书写不正确.</span><br><span class="line">3.sql串的?号用&#39;&#39;括了起来。</span><br></pre></td></tr></table></figure>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年06月03日 14:56</p>
-        <p>原始链接： <a class="post-url" href="/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" title="Oracle错误ORA-00913:值过多">http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/</a></p>
+        <p>最后更新： 2020年06月11日 11:23</p>
+        <p>原始链接： <a class="post-url" href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" title="Oracle错误">http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
                 <img src="/images/logo.png" alt="房鹏程">
@@ -177,7 +182,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&title=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&pic=images/Oracle.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/&title=《Oracle错误》 — 房鹏程的博客&pic=images/Oracle.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -187,22 +192,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&title=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/&title=《Oracle错误》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Oracle错误ORA-00913:值过多》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/&via=http://fangpengcheng.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Oracle错误》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/&via=http://fangpengcheng.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -212,7 +217,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AFORA-00913-%E5%80%BC%E8%BF%87%E5%A4%9A/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -237,7 +242,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ORA-00913-值过多"><span class="post-toc-text">ORA-00913:值过多</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ORA-00913-值过多"><span class="post-toc-text">ORA-00913:值过多</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ORA-00911-无效字符"><span class="post-toc-text">ORA-00911: 无效字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#java-sql-SQLException-无效的列索引"><span class="post-toc-text">java.sql.SQLException: 无效的列索引</span></a></li></ol>
         </nav>
     </aside>
     
