@@ -16,7 +16,7 @@
 <meta property="og:description" content="如何彻底卸载1.清除注册表    注册表搜索    计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\SyncIntegrationClients    计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\SEEYON2.清除用户上生成的文件.sii    C:\Users\26385\SiiFiles3.直接删除存放的文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-20T07:32:48.000Z">
-<meta property="article:modified_time" content="2020-05-25T10:02:47.831Z">
+<meta property="article:modified_time" content="2020-06-12T04:01:35.529Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="日志">
 <meta name="twitter:card" content="summary">
@@ -151,11 +151,12 @@
 <h3 id="插入菜单栏"><a href="#插入菜单栏" class="headerlink" title="插入菜单栏"></a>插入菜单栏</h3><p>1.方法一<br>    设置关联系统，关联系统下设置工作区，然后修改主菜单</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">update PRIV_MENU set RESOURCE_NAVURL&#x3D;null where id in (3503750930309923643)</span><br><span class="line">update PRIV_MENU set target&#x3D;null where id in (3503750930309923643)</span><br></pre></td></tr></table></figure>
 <p>2.方法二<br>    直接插入sql</p>
-<pre><code>INSERT INTO PRIV_MENU VALUES (3733877095818150424, &apos;主菜单&apos;, &apos;vouchergenerate.png&apos;, Null, 996, NULL, &apos;666&apos;, &apos;0&apos;, &apos;1&apos;, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, to_date(&apos;2020-05-25 11:27:01&apos;,&apos;YYYY-MM-DD HH24:MI:SS&apos;), NULL, to_date(&apos;2020-05-25 11:27:01&apos;,&apos;YYYY-MM-DD HH24:MI:SS&apos;), NULL, 1, 1, 1, 2, 0);
-INSERT INTO PRIV_MENU VALUES (5312050049926647549, &apos;子菜单&apos;, &apos;vouchergenerate.png&apos;, &apos;mainfrm&apos;, 997, NULL, &apos;666001&apos;, &apos;0&apos;, &apos;2&apos;, NULL, 1, NULL, NULL, NULL, &apos;0&apos;, &apos;0&apos;, &apos;0&apos;, &apos;1&apos;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, 1, &apos;/ext/NscTreeTJZH.do?method=showDocTree&apos;, &apos;showDocTree&apos;, &apos;none&apos;, to_date(&apos;2020-05-25 11:27:01&apos;,&apos;YYYY-MM-DD HH24:MI:SS&apos;), NULL, to_date(&apos;2020-05-25 11:27:01&apos;,&apos;YYYY-MM-DD HH24:MI:SS&apos;), NULL, 1, 1, 1, 2, 3733877095818150424);</code></pre><pre><code>设置完成后，在管理员账户设置角色权限添加上菜单即可</code></pre><h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO PRIV_MENU VALUES (3733877095818150424, &#39;主菜单&#39;, &#39;vouchergenerate.png&#39;, Null, 996, NULL, &#39;666&#39;, &#39;0&#39;, &#39;1&#39;, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, to_date(&#39;2020-05-25 11:27:01&#39;,&#39;YYYY-MM-DD HH24:MI:SS&#39;), NULL, to_date(&#39;2020-05-25 11:27:01&#39;,&#39;YYYY-MM-DD HH24:MI:SS&#39;), NULL, 1, 1, 1, 2, 0);</span><br><span class="line">INSERT INTO PRIV_MENU VALUES (5312050049926647549, &#39;子菜单&#39;, &#39;vouchergenerate.png&#39;, &#39;mainfrm&#39;, 997, NULL, &#39;666001&#39;, &#39;0&#39;, &#39;2&#39;, NULL, 1, NULL, NULL, NULL, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;1&#39;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, 1, &#39;&#x2F;ext&#x2F;NscTreeTJZH.do?method&#x3D;showDocTree&#39;, &#39;showDocTree&#39;, &#39;none&#39;, to_date(&#39;2020-05-25 11:27:01&#39;,&#39;YYYY-MM-DD HH24:MI:SS&#39;), NULL, to_date(&#39;2020-05-25 11:27:01&#39;,&#39;YYYY-MM-DD HH24:MI:SS&#39;), NULL, 1, 1, 1, 2, 3733877095818150424);</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line">    设置完成后，在管理员账户设置角色权限添加上菜单即可</span><br><span class="line"></span><br><span class="line">### 手动插入邮箱</span><br></pre></td></tr></table></figure>
+<p>org_member 表找到邮箱字段,更改邮箱<br>ctp customize 表cvalue字段改成 true<br>```</p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年05月25日 18:02</p>
+        <p>最后更新： 2020年06月12日 12:01</p>
         <p>原始链接： <a class="post-url" href="/2020/05/20/oa%E8%AE%B0%E5%BD%95/" title="oa记录">http://fangpengcheng.com/2020/05/20/oa%E8%AE%B0%E5%BD%95/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -242,7 +243,7 @@ INSERT INTO PRIV_MENU VALUES (5312050049926647549, &apos;子菜单&apos;, &apos;
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何彻底卸载"><span class="post-toc-text">如何彻底卸载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插入菜单栏"><span class="post-toc-text">插入菜单栏</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-text"></span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何彻底卸载"><span class="post-toc-text">如何彻底卸载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插入菜单栏"><span class="post-toc-text">插入菜单栏</span></a></li></ol>
         </nav>
     </aside>
     
