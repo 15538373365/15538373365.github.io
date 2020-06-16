@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="快速ajax12345678910111213141516171819202122cmp.ajax(&amp;#123;    type:&quot;GET&quot;,    url:cmp.seeyonbasepath + &#39;&#39;,&#x2F;&#x2F;url的拼接    headers:&amp;#123;        &#39;Accept&#39;:&#39;application&amp;#">
+  <meta name="description" content="快速ajax12345678910111213141516171819202122cmp.ajax(&amp;#123;    type:&quot;GET&quot;,    url:cmp.seeyonbasepath + &#39;&#x2F;ext&#x2F;NscZdyFpc.do?method&#x3D;AssociatedFoldersM3&#39;,&#x2F;&#x2F;url的拼接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OAM3端">
 <meta property="og:url" content="http://fangpengcheng.com/2020/06/12/OAM3%E7%AB%AF/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="快速ajax12345678910111213141516171819202122cmp.ajax(&amp;#123;    type:&quot;GET&quot;,    url:cmp.seeyonbasepath + &#39;&#39;,&#x2F;&#x2F;url的拼接    headers:&amp;#123;        &#39;Accept&#39;:&#39;application&amp;#">
+<meta property="og:description" content="快速ajax12345678910111213141516171819202122cmp.ajax(&amp;#123;    type:&quot;GET&quot;,    url:cmp.seeyonbasepath + &#39;&#x2F;ext&#x2F;NscZdyFpc.do?method&#x3D;AssociatedFoldersM3&#39;,&#x2F;&#x2F;url的拼接">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-12T04:05:29.000Z">
-<meta property="article:modified_time" content="2020-06-12T04:07:59.455Z">
+<meta property="article:modified_time" content="2020-06-12T07:54:50.244Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="OA">
 <meta name="twitter:card" content="summary">
@@ -147,12 +147,12 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="快速ajax"><a href="#快速ajax" class="headerlink" title="快速ajax"></a>快速ajax</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cmp.ajax(&#123;</span><br><span class="line">    type:&quot;GET&quot;,</span><br><span class="line">    url:cmp.seeyonbasepath + &#39;&#39;,&#x2F;&#x2F;url的拼接</span><br><span class="line">    headers:&#123;</span><br><span class="line">        &#39;Accept&#39;:&#39;application&#x2F;json; charset&#x3D;utf-8&#39;,</span><br><span class="line">        &#39;Accept-Language&#39; : cmp.language,</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json; charset&#x3D;utf-8&#39;,</span><br><span class="line">        &#39;option.n_a_s&#39; : &#39;1&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    success:function(result)&#123;</span><br><span class="line">       alert(result);</span><br><span class="line">    &#125;,</span><br><span class="line">    error:function(error)&#123;</span><br><span class="line">        if(!cmp.errorHandler(error))&#123; &#x2F;&#x2F;先调用平台的错误统一处理机制</span><br><span class="line">            &#x2F;&#x2F;如果平台的统一处理机制处理不了，则自己写业务逻辑</span><br><span class="line">            var code &#x3D; error.code;</span><br><span class="line">            if(code&#x3D;&#x3D;500)&#123;</span><br><span class="line">                alert(&quot;请求失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            <h3 id="快速ajax"><a href="#快速ajax" class="headerlink" title="快速ajax"></a>快速ajax</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cmp.ajax(&#123;</span><br><span class="line">    type:&quot;GET&quot;,</span><br><span class="line">    url:cmp.seeyonbasepath + &#39;&#x2F;ext&#x2F;NscZdyFpc.do?method&#x3D;AssociatedFoldersM3&#39;,&#x2F;&#x2F;url的拼接</span><br><span class="line">    headers:&#123;</span><br><span class="line">        &#39;Accept&#39;:&#39;application&#x2F;json; charset&#x3D;utf-8&#39;,</span><br><span class="line">        &#39;Accept-Language&#39; : cmp.language,</span><br><span class="line">        &#39;Content-Type&#39;: &#39;application&#x2F;json; charset&#x3D;utf-8&#39;,</span><br><span class="line">        &#39;option.n_a_s&#39; : &#39;1&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    success:function(result)&#123;</span><br><span class="line">        alert(result);</span><br><span class="line">    &#125;,</span><br><span class="line">    error:function(error)&#123;</span><br><span class="line">        if(!cmp.errorHandler(error))&#123; &#x2F;&#x2F;先调用平台的错误统一处理机制</span><br><span class="line">            &#x2F;&#x2F;如果平台的统一处理机制处理不了，则自己写业务逻辑</span><br><span class="line">            var code &#x3D; error.code;</span><br><span class="line">            if(code&#x3D;&#x3D;500)&#123;</span><br><span class="line">                alert(&quot;请求失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="调用restful接口"><a href="#调用restful接口" class="headerlink" title="调用restful接口"></a>调用restful接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">SeeyonApi.Rest.get(url, &#123;&#125;, &quot;&quot;, errorBuilder(&#123;</span><br><span class="line">success : function(result) &#123;	</span><br><span class="line">    if (&quot;true&quot; &#x3D;&#x3D;&#x3D; result.data) &#123;</span><br><span class="line">        var updateData &#x3D; &#123;</span><br><span class="line">            field0006: &#123;</span><br><span class="line">                    value : &#39;YES&#39;,</span><br><span class="line">                    showValue : &#39;YES&#39;,</span><br><span class="line">                    showValue2 : &#39;YES&#39;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        payload.updateData &#x3D; updateData;</span><br><span class="line">        payload.privateId&#x3D;privateId;</span><br><span class="line">        &#x2F;&#x2F; 初始化的时候已经定义好  实际也是依赖于adaptation和privateId</span><br><span class="line">        adaptation.backCallApi(&#39;presave&#39;, function()&#123;</span><br><span class="line">            adaptation.backfillFormControlData(payload, privateId);</span><br><span class="line">            console.log(&#39;表单预提交成功&#39;);</span><br><span class="line">        &#125;,payload);</span><br><span class="line">        cmp.notification.close();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        cmp.notification.alert(&#39;密码错误！&#39;, &#39;&#39;, &#39;&#39;, &#39;确定&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年06月12日 12:07</p>
+        <p>最后更新： 2020年06月12日 15:54</p>
         <p>原始链接： <a class="post-url" href="/2020/06/12/OAM3%E7%AB%AF/" title="OAM3端">http://fangpengcheng.com/2020/06/12/OAM3%E7%AB%AF/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -245,6 +245,16 @@
     
 
 <nav id="article-nav">
+  
+    <a href="/2020/06/16/Java%E6%95%B0%E5%AD%A6%E5%A4%84%E7%90%86%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Java数学处理类
+        
+      </span>
+    </a>
   
   
     <a href="/2020/06/11/hexo%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/" id="article-nav-older" class="article-nav-link-wrap">
