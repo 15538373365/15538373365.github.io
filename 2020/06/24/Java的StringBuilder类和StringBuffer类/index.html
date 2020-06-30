@@ -16,7 +16,7 @@
 <meta property="og:description" content="概念由于String类描述的字符串内容是个常量不可改变，若程序中出现大量相似的字符串时使用String类型描述则需要单独存储，此时对内存空间的消耗比较大。为了解决上述问题，希望直接修改字符串内容，则使用StringBuilder类或StringBuffer类加以描述。其中StringBuffer类从jdk1.0开始出现，属于线程安全的类，因此效率比较低；其中StringBuilder类从jdk1.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-24T01:56:40.000Z">
-<meta property="article:modified_time" content="2020-06-29T09:25:11.129Z">
+<meta property="article:modified_time" content="2020-06-29T09:29:41.522Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -187,9 +187,17 @@
 <li>实现字符串的反转，返回当前对象的引用</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder reverse &#x3D; sb1.reverse();</span><br><span class="line">System.out.println(reverse);&#x2F;&#x2F;dlrowiDCBAolleh4321dcba</span><br><span class="line">System.out.println(&quot;sb1&#x3D;&quot;+sb1);&#x2F;&#x2F;dlrowiDCBAolleh4321dcba</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何实现String和StringBuilder之间的转换"><a href="#如何实现String和StringBuilder之间的转换" class="headerlink" title="如何实现String和StringBuilder之间的转换"></a>如何实现String和StringBuilder之间的转换</h3><pre><code>//8.String转换StringBuilder
+String str =&quot;string&quot;;
+StringBuilder strB = new StringBuilder(str);
+System.out.println(strB);//string
+//9.String转换StringBuilder
+String strc = strB.toString();
+System.out.println(strc);//string</code></pre>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年06月29日 17:25</p>
+        <p>最后更新： 2020年06月29日 17:29</p>
         <p>原始链接： <a class="post-url" href="/2020/06/24/Java%E7%9A%84StringBuilder%E7%B1%BB%E5%92%8CStringBuffer%E7%B1%BB/" title="Java的StringBuilder类和StringBuffer类">http://fangpengcheng.com/2020/06/24/Java%E7%9A%84StringBuilder%E7%B1%BB%E5%92%8CStringBuffer%E7%B1%BB/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -276,7 +284,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用的方法"><span class="post-toc-text">常用的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-String-str"><span class="post-toc-text">StringBuilder(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-capacity"><span class="post-toc-text">int capacity()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-length"><span class="post-toc-text">int length()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-insert-int-offset-String-str"><span class="post-toc-text">StringBuilder insert(int offset, String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-append-String-str"><span class="post-toc-text">StringBuilder append(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-delete-int-start-int-end"><span class="post-toc-text">StringBuilder delete(int start, int end)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-replace-int-start-int-end-String-str"><span class="post-toc-text">StringBuilder replace(int start, int end, String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#void-setCharAt-int-index-char-ch"><span class="post-toc-text">void setCharAt(int index, char ch)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-indexOf-String-str"><span class="post-toc-text">int indexOf(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-reverse"><span class="post-toc-text">StringBuilder reverse()</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用的方法"><span class="post-toc-text">常用的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-String-str"><span class="post-toc-text">StringBuilder(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-capacity"><span class="post-toc-text">int capacity()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-length"><span class="post-toc-text">int length()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-insert-int-offset-String-str"><span class="post-toc-text">StringBuilder insert(int offset, String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-append-String-str"><span class="post-toc-text">StringBuilder append(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-delete-int-start-int-end"><span class="post-toc-text">StringBuilder delete(int start, int end)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-replace-int-start-int-end-String-str"><span class="post-toc-text">StringBuilder replace(int start, int end, String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#void-setCharAt-int-index-char-ch"><span class="post-toc-text">void setCharAt(int index, char ch)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#int-indexOf-String-str"><span class="post-toc-text">int indexOf(String str)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#StringBuilder-reverse"><span class="post-toc-text">StringBuilder reverse()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何实现String和StringBuilder之间的转换"><span class="post-toc-text">如何实现String和StringBuilder之间的转换</span></a></li></ol>
         </nav>
     </aside>
     
