@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>房鹏程的博客</title>
+  <title>Java的Calendar类 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/page/4/index.html">
+  <meta name="description" content="基本概念   java.util.Calendar类用于描述特定的瞬间，来取代Date类中的过时方法。   该类是个抽象类，因此该类不能构造对象。 常用的方法static Calendar getInstance()- 用于获取Calendar类型的引用并返回。void set(int year, int month, int date, int hourOfDay, int minute, in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的Calendar类">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="基本概念   java.util.Calendar类用于描述特定的瞬间，来取代Date类中的过时方法。   该类是个抽象类，因此该类不能构造对象。 常用的方法static Calendar getInstance()- 用于获取Calendar类型的引用并返回。void set(int year, int month, int date, int hourOfDay, int minute, in">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-01T02:39:36.000Z">
+<meta property="article:modified_time" content="2020-07-01T03:05:30.846Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,44 +118,108 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-Java常用类Runtime" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Java的Calendar类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/"  >Java常用类Runtime</a>
+    <h1 class="post-title" itemprop="name">
+      Java的Calendar类
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-07-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java常用类Runtime" title="Java常用类Runtime">
-                
+            
+            <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>   java.util.Calendar类用于描述特定的瞬间，来取代Date类中的过时方法。<br>   该类是个抽象类，因此该类不能构造对象。</p>
+<h3 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h3><h5 id="static-Calendar-getInstance"><a href="#static-Calendar-getInstance" class="headerlink" title="static Calendar getInstance()"></a>static Calendar getInstance()</h5><pre><code>- 用于获取Calendar类型的引用并返回。</code></pre><h5 id="void-set-int-year-int-month-int-date-int-hourOfDay-int-minute-int-second"><a href="#void-set-int-year-int-month-int-date-int-hourOfDay-int-minute-int-second" class="headerlink" title="void set(int year, int month, int date, int hourOfDay, int minute, int second)"></a>void set(int year, int month, int date, int hourOfDay, int minute, int second)</h5><pre><code>- 用于设置年月日时分秒信息。 </code></pre><h5 id="Date-getTime"><a href="#Date-getTime" class="headerlink" title="Date getTime()"></a>Date getTime()</h5><pre><code>- 用于将Calendar类型的时间转换为Date类型的对象并返回。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.使用过时的方式按照指定的年月日时分秒来构造独享并打印</span><br><span class="line">Date d1 &#x3D; new Date(2008,8,8,20,8,8);</span><br><span class="line">&#x2F;&#x2F;调整格式</span><br><span class="line">SimpleDateFormat  sdf &#x3D; new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">System.out.println(sdf.format(d1));&#x2F;&#x2F;3908-09-08 20:08:08</span><br><span class="line">&#x2F;&#x2F;输出结果发现与实际输出不符</span><br><span class="line">&#x2F;**</span><br><span class="line">    year - 减 1900 的年份。</span><br><span class="line">    month - 0-11 之间的月份。</span><br><span class="line">    date - 一月中 1-31 之间的某一天。</span><br><span class="line">    hrs - 0-23 之间的小时数。</span><br><span class="line">    min - 0-59 之间的分钟数。</span><br><span class="line">    sec - 0-59 之间的秒数。</span><br><span class="line">    *&#x2F;</span><br><span class="line">Date d2 &#x3D; new Date(2008-1900,8-1,8,20,8,8);&#x2F;&#x2F;年减去1900，月-1</span><br><span class="line">&#x2F;&#x2F;调整格式</span><br><span class="line">System.out.println(sdf.format(d2));&#x2F;&#x2F;2008-08-08 20:08:08</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2 使用取代方法按照指定年月日时分秒来构造对象并打印</span><br><span class="line">&#x2F;&#x2F;2.1通过静态方法得到Calendar类型的引用</span><br><span class="line">Calendar c1 &#x3D; Calendar.getInstance();</span><br><span class="line">&#x2F;&#x2F;2.2通过set()方法来设置年月日时分秒信息</span><br><span class="line">c1.set(2008, 8-1, 8, 20, 8, 8);</span><br><span class="line">&#x2F;&#x2F;2.3通过getTime()方法转换Date类型</span><br><span class="line">Date time &#x3D; c1.getTime();</span><br><span class="line">&#x2F;&#x2F;2.4通过format()方法来调整格式</span><br><span class="line">System.out.println(sdf.format(time));&#x2F;&#x2F;2008-08-08 20:08:08</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年07月01日 11:05</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" title="Java的Calendar类">http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Runtime类是什么？每个java程序在运行时相当于启动了一个JVM进程，每个JVM进程都对应一个RunTime实例。此实例是JVM负责实例化的，所以我们不能实例化一个RunTime对象，只能通过getRuntime() 获取当前运行的Runtime对象的引用。一旦得到了一个当前的Runtime对象的引用，就可以调用Runtime对象的方法去查看Java虚拟机的状态以及...
-            </p>
-        </div>
+        </footer>
+    </div>
+</div>
+
       
+        
+            
+
         
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/&title=《Java的Calendar类》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/&title=《Java的Calendar类》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的Calendar类》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-08</li>
             
             
   <li class="article-footer-tags">
@@ -164,246 +231,41 @@
 
         </ul>
         
-            <a href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/#more" class="article-more-link" >more&gt;&gt;</a>
-        
     </footer>
   </div>
 </article>
 
 
-  
-    <article id="post-Java常用类AutoCloseable" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用的方法"><span class="post-toc-text">常用的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#static-Calendar-getInstance"><span class="post-toc-text">static Calendar getInstance()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#void-set-int-year-int-month-int-date-int-hourOfDay-int-minute-int-second"><span class="post-toc-text">void set(int year, int month, int date, int hourOfDay, int minute, int second)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Date-getTime"><span class="post-toc-text">Date getTime()</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/"  >Java常用类AutoCloseable</a>
-    </h1>
-  
 
-          
-      </header>
+<nav id="article-nav">
+  
+    <a href="/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Java的集合类
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/07/01/Java%E7%9A%84SimpleDateFormat%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java的SimpleDateFormat类</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java常用类AutoCloseable" title="Java常用类AutoCloseable">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                AutoCloseable 内容介绍自动关闭资源JDK1.7以后可用必须在try-catch中
-代码用法123456789101112131415161718192021222324252627interface IMessage extends AutoCloseable&#123;&#x2F;&#x2F;直接继承接口	public void send(String m...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-05</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Java中isEmpty的用法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/"  >Java中isEmpty的用法</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java中isEmpty的用法" title="Java中isEmpty的用法">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                判断对象内容是否为空一般是以长度为准。当且仅当 length() 为 0 时返回 true。
-
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-04</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Oracle错误" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/"  >Oracle错误</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" >
-                
-                <img src="http://fangpengcheng.com/images/Oracle.png" alt="Oracle错误" title="Oracle错误">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。
-
-ORA-00911: 无效字符1添加了不能Oracle识别的字符，如:在sql...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-03</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Oracle/" class="color2">Oracle</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-虚拟机与本机的几种ip连接方式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/"  >虚拟机与本机的几种ip连接方式</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" >
-                
-                <img src="http://fangpengcheng.com/images/linux.png" alt="虚拟机与本机的几种ip连接方式" title="虚拟机与本机的几种ip连接方式">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                桥接模式(将虚拟机直接连接到外部网络)所谓的桥连接，就是说虚拟机的网络ip地址与我们的主机（母机）的ip在一个网段，加入我们windows机器的ip是192.168.172.11，那虚拟机的ip也将在92.168.172.XXX这个网络，这样虚拟机虽然可以直接上网也可以与主机互通但是可能会造成较多的网络ip冲突！
-
-
-NAT模式(与虚拟机共享ip地址)仅主机模式 host...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-03</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Vmware/" class="color2">Vmware</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&lt;&lt; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
@@ -435,7 +297,7 @@ NAT模式(与虚拟机共享ip地址)仅主机模式 host...
   var mihoConfig = {
       root: "http://fangpengcheng.com",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 0
   }
@@ -547,6 +409,13 @@ NAT模式(与虚拟机共享ip地址)仅主机模式 host...
 <script src="/js/animate.js"></script>
 
 
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
   </div>
 <!-- 爱心特效 -->

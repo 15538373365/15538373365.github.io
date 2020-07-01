@@ -16,7 +16,7 @@
 <meta property="og:description" content="基本概念SimpleDateFormat是一个以与语言环境有关的方式来格式化和解析日期的具体类。它允许进行格式化（日期 -&gt; 文本）、解析（文本 -&gt; 日期）和规范化。 常用方法SimpleDateFormat(String pattern) 根据参数指定的模式来构造对象。 常用模式有：y-年,M-月,d-日,H-时,m-分,s-秒public final String format(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-01T02:11:23.000Z">
-<meta property="article:modified_time" content="2020-07-01T02:19:54.588Z">
+<meta property="article:modified_time" content="2020-07-01T02:36:02.693Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -154,10 +154,10 @@
 <li>用于实现Date类型向String类型的转换。<h5 id="Date-parse-String-source"><a href="#Date-parse-String-source" class="headerlink" title="Date parse(String source)"></a>Date parse(String source)</h5></li>
 <li>用于实现String类型向Date类型的转换。</li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用默认日期打印出来</span><br><span class="line">Date d1 &#x3D; new Date();</span><br><span class="line">System.out.println(&quot;d1&#x3D;&quot;+d1);&#x2F;&#x2F;d1&#x3D;Wed Jul 01 10:31:18 CST 2020</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用SimpleDateFormat类实现日期输出格式的调整</span><br><span class="line">SimpleDateFormat  sdf &#x3D; new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);</span><br><span class="line">&#x2F;&#x2F;日期类型向字符串类型转换</span><br><span class="line">String format &#x3D; sdf.format(d1);</span><br><span class="line">System.out.println(format);&#x2F;&#x2F;2020-07-01 10:34:07</span><br><span class="line">&#x2F;&#x2F;字符串类型向日期类型转换</span><br><span class="line">Date parse &#x3D; sdf.parse(format);&#x2F;&#x2F;parse&#x3D;Wed Jul 01 10:35:03 CST 2020</span><br><span class="line">System.out.println(&quot;parse&#x3D;&quot;+parse);</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年07月01日 10:19</p>
+        <p>最后更新： 2020年07月01日 10:36</p>
         <p>原始链接： <a class="post-url" href="/2020/07/01/Java%E7%9A%84SimpleDateFormat%E7%B1%BB/" title="Java的SimpleDateFormat类">http://fangpengcheng.com/2020/07/01/Java%E7%9A%84SimpleDateFormat%E7%B1%BB/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -250,6 +250,16 @@
     
 
 <nav id="article-nav">
+  
+    <a href="/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Java的Calendar类
+        
+      </span>
+    </a>
   
   
     <a href="/2020/06/29/Java%E7%9A%84%E6%97%A5%E6%9C%9F%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">

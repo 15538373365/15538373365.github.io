@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>房鹏程的博客</title>
+  <title>Java中数组和集合的比较 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/page/4/index.html">
+  <meta name="description" content="当需要在程序中记录单个数据内容时，则声明一个变量即可;当需要在程序中记录多个类型相同的数据内容时，则声明一个一维数据即可;当需要在程序中记录多个类型不相同的数据内容时，则构造一个对象即可;当需要在程序中记录多个类型相同的对象时，则可以声明一个对象数组即可;当需要在程序中记录多个类型不相同的对象时，则声明一个集合即可; 数组的特点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中数组和集合的比较">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="当需要在程序中记录单个数据内容时，则声明一个变量即可;当需要在程序中记录多个类型相同的数据内容时，则声明一个一维数据即可;当需要在程序中记录多个类型不相同的数据内容时，则构造一个对象即可;当需要在程序中记录多个类型相同的对象时，则可以声明一个对象数组即可;当需要在程序中记录多个类型不相同的对象时，则声明一个集合即可; 数组的特点">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-01T06:22:29.000Z">
+<meta property="article:modified_time" content="2020-07-01T06:23:49.722Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,44 +118,108 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-Java常用类Runtime" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Java中数组和集合的比较" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/"  >Java常用类Runtime</a>
+    <h1 class="post-title" itemprop="name">
+      Java中数组和集合的比较
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-07-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java常用类Runtime" title="Java常用类Runtime">
-                
+            
+            <p>当需要在程序中记录单个数据内容时，则声明一个变量即可;<br>当需要在程序中记录多个类型相同的数据内容时，则声明一个一维数据即可;<br>当需要在程序中记录多个类型不相同的数据内容时，则构造一个对象即可;<br>当需要在程序中记录多个类型相同的对象时，则可以声明一个对象数组即可;<br>当需要在程序中记录多个类型不相同的对象时，则声明一个集合即可;</p>
+<h2 id="数组的特点"><a href="#数组的特点" class="headerlink" title="数组的特点"></a>数组的特点</h2>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年07月01日 14:23</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/" title="Java中数组和集合的比较">http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Runtime类是什么？每个java程序在运行时相当于启动了一个JVM进程，每个JVM进程都对应一个RunTime实例。此实例是JVM负责实例化的，所以我们不能实例化一个RunTime对象，只能通过getRuntime() 获取当前运行的Runtime对象的引用。一旦得到了一个当前的Runtime对象的引用，就可以调用Runtime对象的方法去查看Java虚拟机的状态以及...
-            </p>
-        </div>
+        </footer>
+    </div>
+</div>
+
       
+        
+            
+
         
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/&title=《Java中数组和集合的比较》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/&title=《Java中数组和集合的比较》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java中数组和集合的比较》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-08</li>
             
             
   <li class="article-footer-tags">
@@ -164,246 +231,31 @@
 
         </ul>
         
-            <a href="/2020/06/08/Java%E5%B8%B8%E7%94%A8%E7%B1%BBRuntime/#more" class="article-more-link" >more&gt;&gt;</a>
-        
     </footer>
   </div>
 </article>
 
 
-  
-    <article id="post-Java常用类AutoCloseable" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组的特点"><span class="post-toc-text">数组的特点</span></a></li></ol>
+        </nav>
+    </aside>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/"  >Java常用类AutoCloseable</a>
-    </h1>
-  
 
-          
-      </header>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java的集合类</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java常用类AutoCloseable" title="Java常用类AutoCloseable">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                AutoCloseable 内容介绍自动关闭资源JDK1.7以后可用必须在try-catch中
-代码用法123456789101112131415161718192021222324252627interface IMessage extends AutoCloseable&#123;&#x2F;&#x2F;直接继承接口	public void send(String m...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-05</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/05/Java%E5%B8%B8%E7%94%A8%E7%B1%BBAutoCloseable/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Java中isEmpty的用法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/"  >Java中isEmpty的用法</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java中isEmpty的用法" title="Java中isEmpty的用法">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                判断对象内容是否为空一般是以长度为准。当且仅当 length() 为 0 时返回 true。
-
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-04</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/04/Java%E4%B8%ADisEmpty%E7%9A%84%E7%94%A8%E6%B3%95/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Oracle错误" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/"  >Oracle错误</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/" >
-                
-                <img src="http://fangpengcheng.com/images/Oracle.png" alt="Oracle错误" title="Oracle错误">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                ORA-00913:值过多12Insert into XX(?,?,?) values(?,?,?)上面是我们自己写的sql语句，我们要插入的值是3个。而数据库中对表XX的定义字段却只有两个，即XX（?,?）。所以我们传的参数的个数多出一个，这样数据库就会报“ORA-00913: 值过多”。
-
-ORA-00911: 无效字符1添加了不能Oracle识别的字符，如:在sql...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-03</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Oracle/" class="color2">Oracle</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/03/Oracle%E9%94%99%E8%AF%AF/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-虚拟机与本机的几种ip连接方式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/"  >虚拟机与本机的几种ip连接方式</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/" >
-                
-                <img src="http://fangpengcheng.com/images/linux.png" alt="虚拟机与本机的几种ip连接方式" title="虚拟机与本机的几种ip连接方式">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                桥接模式(将虚拟机直接连接到外部网络)所谓的桥连接，就是说虚拟机的网络ip地址与我们的主机（母机）的ip在一个网段，加入我们windows机器的ip是192.168.172.11，那虚拟机的ip也将在92.168.172.XXX这个网络，这样虚拟机虽然可以直接上网也可以与主机互通但是可能会造成较多的网络ip冲突！
-
-
-NAT模式(与虚拟机共享ip地址)仅主机模式 host...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-03</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Vmware/" class="color2">Vmware</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/03/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E6%9C%AC%E6%9C%BA%E7%9A%84%E5%87%A0%E7%A7%8Dip%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&lt;&lt; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
@@ -435,7 +287,7 @@ NAT模式(与虚拟机共享ip地址)仅主机模式 host...
   var mihoConfig = {
       root: "http://fangpengcheng.com",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 0
   }
@@ -547,6 +399,13 @@ NAT模式(与虚拟机共享ip地址)仅主机模式 host...
 <script src="/js/animate.js"></script>
 
 
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
   </div>
 <!-- 爱心特效 -->
