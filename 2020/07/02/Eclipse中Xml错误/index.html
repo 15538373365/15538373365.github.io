@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>BigDecimal类的简单用法 | 房鹏程的博客</title>
+  <title>Eclipse中Xml错误 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="初始化使用String类型 12345BigDecimal num1 &#x3D; new BigDecimal(&quot;0.005&quot;);BigDecimal num2 &#x3D; new BigDecimal(&quot;1000000&quot;);BigDecimal num3 &#x3D; new BigDecimal(&quot;-1000000&quot;);BigDe">
+  <meta name="description" content="错误显示Referenced file contains errors (http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans-3.0.xsd) 解决办法删除缓存Preferences -&gt; General -&gt; Network Connections -&gt; Cache删除完成后project -&gt;下clean清理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BigDecimal类的简单用法">
-<meta property="og:url" content="http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/index.html">
+<meta property="og:title" content="Eclipse中Xml错误">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="初始化使用String类型 12345BigDecimal num1 &#x3D; new BigDecimal(&quot;0.005&quot;);BigDecimal num2 &#x3D; new BigDecimal(&quot;1000000&quot;);BigDecimal num3 &#x3D; new BigDecimal(&quot;-1000000&quot;);BigDe">
+<meta property="og:description" content="错误显示Referenced file contains errors (http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans-3.0.xsd) 解决办法删除缓存Preferences -&gt; General -&gt; Network Connections -&gt; Cache删除完成后project -&gt;下clean清理">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-06T06:58:58.000Z">
-<meta property="article:modified_time" content="2020-01-06T07:17:14.002Z">
+<meta property="article:published_time" content="2020-07-02T06:32:55.000Z">
+<meta property="article:modified_time" content="2020-07-02T06:36:24.591Z">
 <meta property="article:author" content="房鹏程">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Eclipse">
 <meta name="twitter:card" content="summary">
   
   
@@ -118,20 +118,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-BigDecimal类的简单用法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Eclipse中Xml错误" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      BigDecimal类的简单用法
+      Eclipse中Xml错误
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2020-01-06
+          <i class="fa fa-calendar"></i>  2020-07-02
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -147,28 +147,16 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>使用String类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal num1 &#x3D; new BigDecimal(&quot;0.005&quot;);</span><br><span class="line">BigDecimal num2 &#x3D; new BigDecimal(&quot;1000000&quot;);</span><br><span class="line">BigDecimal num3 &#x3D; new BigDecimal(&quot;-1000000&quot;);</span><br><span class="line">BigDecimal num4 &#x3D; new BigDecimal(&quot;10&quot;);</span><br><span class="line">BigDecimal num5 &#x3D; new BigDecimal(&quot;3.335&quot;);</span><br></pre></td></tr></table></figure>
+            <h3 id="错误显示"><a href="#错误显示" class="headerlink" title="错误显示"></a>错误显示</h3><p>Referenced file contains errors (<a href="http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" target="_blank" rel="noopener">http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</a>)</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><h6 id="删除缓存"><a href="#删除缓存" class="headerlink" title="删除缓存"></a>删除缓存</h6><p>Preferences -&gt; General -&gt; Network Connections -&gt; Cache<br>删除完成后<br>project -&gt;下clean清理一下</p>
+<p>然后刷新项目</p>
+<h5 id="版本不一致"><a href="#版本不一致" class="headerlink" title="版本不一致"></a>版本不一致</h5><p>当前使用的spring版本和配置文件写的不同意，导致xsd等文件不会被正确加载，那么就是改成当前使用的对应版本了</p>
+<h5 id="格式不统一"><a href="#格式不统一" class="headerlink" title="格式不统一"></a>格式不统一</h5><p>在使用spring时，使用多个配置文件，那么头里面的配置一定要统一，和上一种理论相同</p>
 
-<h3 id="加-add"><a href="#加-add" class="headerlink" title="加/add()"></a>加/add()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num12.add(num22);</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000000.005</span><br></pre></td></tr></table></figure>
-<h3 id="减-subtract"><a href="#减-subtract" class="headerlink" title="减/subtract()"></a>减/subtract()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num32.subtract(num22)</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-2000000</span><br></pre></td></tr></table></figure>
-<h3 id="乘-multiply"><a href="#乘-multiply" class="headerlink" title="乘/multiply()"></a>乘/multiply()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num1.multiply(num2)</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5000.000</span><br></pre></td></tr></table></figure>
-<h3 id="除-divide"><a href="#除-divide" class="headerlink" title="除/divide()"></a>除/divide()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num2.divide(num4)</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100000</span><br></pre></td></tr></table></figure>
-<h3 id="四舍五入保留两位小数"><a href="#四舍五入保留两位小数" class="headerlink" title="四舍五入保留两位小数"></a>四舍五入保留两位小数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">double doubleValue &#x3D; num5.setScale(2,RoundingMode.HALF_UP).doubleValue();</span><br><span class="line">System.out.println(doubleValue);</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.34</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年01月06日 15:17</p>
-        <p>原始链接： <a class="post-url" href="/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/" title="BigDecimal类的简单用法">http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</a></p>
+        <p>最后更新： 2020年07月02日 14:36</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/" title="Eclipse中Xml错误">http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
                 <img src="/images/logo.png" alt="房鹏程">
@@ -194,7 +182,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/&title=《BigDecimal类的简单用法》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/&title=《Eclipse中Xml错误》 — 房鹏程的博客&pic=images/eclipse.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -204,22 +192,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/&title=《BigDecimal类的简单用法》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/&title=《Eclipse中Xml错误》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BigDecimal类的简单用法》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/&via=http://fangpengcheng.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Eclipse中Xml错误》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/&via=http://fangpengcheng.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -229,7 +217,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/01/06/BigDecimal%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/02/Eclipse%E4%B8%ADXml%E9%94%99%E8%AF%AF/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -241,7 +229,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Java/" class="color5">Java</a>
+    <a href="/tags/Eclipse/" class="color3">Eclipse</a>
       
   </li>
 
@@ -254,26 +242,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化"><span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加-add"><span class="post-toc-text">加&#x2F;add()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减-subtract"><span class="post-toc-text">减&#x2F;subtract()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#乘-multiply"><span class="post-toc-text">乘&#x2F;multiply()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#除-divide"><span class="post-toc-text">除&#x2F;divide()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四舍五入保留两位小数"><span class="post-toc-text">四舍五入保留两位小数</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误显示"><span class="post-toc-text">错误显示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决办法"><span class="post-toc-text">解决办法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#删除缓存"><span class="post-toc-text">删除缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#版本不一致"><span class="post-toc-text">版本不一致</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#格式不统一"><span class="post-toc-text">格式不统一</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2020/01/06/Java%E4%B8%AD%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8CString%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Java中基本数据类型和String类型的相互转换
-        
-      </span>
-    </a>
   
-  
-    <a href="/2019/12/27/Map%E9%AA%8C%E8%AF%81%E9%94%AE%E5%80%BC%E5%AF%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Map验证键值对是否存在</span>
+    <a href="/2020/07/01/Java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E6%AF%94%E8%BE%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java中数组和集合的比较</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
