@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 房鹏程的博客</title>
+  <title>Java的多态使用场合 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/archives/page/8/index.html">
+  <meta name="description" content="什么是多态多态是同一个行为具有多个不同表现形式或形态的能力。多态就是同一个接口，使用不同的实例而执行不同操作。 多态的使用场合通过方法的参数的传递形成多态12345public static void printPerson(Person p)&amp;#123;&amp;#125;printPerson(new Worker(&quot;zhangfei&quot;,30,3000)); 在方法体中直接使用父类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的多态使用场合">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="什么是多态多态是同一个行为具有多个不同表现形式或形态的能力。多态就是同一个接口，使用不同的实例而执行不同操作。 多态的使用场合通过方法的参数的传递形成多态12345public static void printPerson(Person p)&amp;#123;&amp;#125;printPerson(new Worker(&quot;zhangfei&quot;,30,3000)); 在方法体中直接使用父类">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-01T05:37:14.000Z">
+<meta property="article:modified_time" content="2020-07-21T08:35:25.274Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,163 +118,113 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-Java的多态使用场合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/05/OA%E5%85%B3%E8%81%94%E7%B3%BB%E7%BB%9F%E5%9F%9F%E5%90%8D%E5%92%8Cip/" class="archive-article-date">
-  <time datetime="2019-12-05T09:14:47.000Z" itemprop="datePublished">12-05</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/OA%E5%85%B3%E8%81%94%E7%B3%BB%E7%BB%9F%E5%9F%9F%E5%90%8D%E5%92%8Cip/"  >OA关联系统域名和ip</a>
+    <h1 class="post-title" itemprop="name">
+      Java的多态使用场合
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-07-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/OA/" class="color3">OA</a>
-      
-  </li>
+            <h2 id="什么是多态"><a href="#什么是多态" class="headerlink" title="什么是多态"></a>什么是多态</h2><p>多态是同一个行为具有多个不同表现形式或形态的能力。<br>多态就是同一个接口，使用不同的实例而执行不同操作。</p>
+<h2 id="多态的使用场合"><a href="#多态的使用场合" class="headerlink" title="多态的使用场合"></a>多态的使用场合</h2><h5 id="通过方法的参数的传递形成多态"><a href="#通过方法的参数的传递形成多态" class="headerlink" title="通过方法的参数的传递形成多态"></a>通过方法的参数的传递形成多态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void printPerson(Person p)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printPerson(new Worker(&quot;zhangfei&quot;,30,3000));</span><br></pre></td></tr></table></figure>
+<h5 id="在方法体中直接使用父类的引用指向子类的对象形成多态"><a href="#在方法体中直接使用父类的引用指向子类的对象形成多态" class="headerlink" title="在方法体中直接使用父类的引用指向子类的对象形成多态"></a>在方法体中直接使用父类的引用指向子类的对象形成多态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Account acc &#x3D; new FixedAccount(1000);</span><br><span class="line">acc.getLixi();</span><br></pre></td></tr></table></figure>
 
-        </div>
-      
-  </div>
-</article>
+<h5 id="通过方法的返回值形成多态"><a href="#通过方法的返回值形成多态" class="headerlink" title="通过方法的返回值形成多态"></a>通过方法的返回值形成多态</h5><p>public Calendar getInstance(){<br>    retrun new GregorianCalendar();<br>}</p>
 
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/04/OA%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  <time datetime="2019-12-04T07:16:15.000Z" itemprop="datePublished">12-04</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/04/OA%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6%E9%85%8D%E7%BD%AE/"  >OA节点事件配置</a>
-    </h1>
-  
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年07月21日 16:35</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/" title="Java的多态使用场合">http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
 
-    </header>
       
-        <div class="archive-post-footer">
+        
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/OA/" class="color3">OA</a>
-      
-  </li>
 
-        </div>
-      
-  </div>
-</article>
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/&title=《Java的多态使用场合》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/&title=《Java的多态使用场合》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的多态使用场合》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E5%A4%9A%E6%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E5%90%88/" alt="微信分享二维码">
+</div>
 
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/27/JDBC%E8%BF%9E%E6%8E%A5%E6%B1%A0/" class="archive-article-date">
-  <time datetime="2019-11-27T07:43:04.000Z" itemprop="datePublished">11-27</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/27/JDBC%E8%BF%9E%E6%8E%A5%E6%B1%A0/"  >JDBC连接池</a>
-    </h1>
-  
+<div class="mask"></div>
 
-    </header>
-      
-        <div class="archive-post-footer">
+        
+        <ul class="article-footer-menu">
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/26/mysql%E9%81%87%E5%88%B01175%E6%8A%A5%E9%94%99/" class="archive-article-date">
-  <time datetime="2019-11-26T13:00:36.000Z" itemprop="datePublished">11-26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/26/mysql%E9%81%87%E5%88%B01175%E6%8A%A5%E9%94%99/"  >mysql遇到1175报错</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Mysql/" class="color1">Mysql</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/26/JDBC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" class="archive-article-date">
-  <time datetime="2019-11-26T12:13:33.000Z" itemprop="datePublished">11-26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/26/JDBC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/"  >JDBC增删改查</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
@@ -280,116 +233,43 @@
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是多态"><span class="post-toc-text">什么是多态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多态的使用场合"><span class="post-toc-text">多态的使用场合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通过方法的参数的传递形成多态"><span class="post-toc-text">通过方法的参数的传递形成多态</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在方法体中直接使用父类的引用指向子类的对象形成多态"><span class="post-toc-text">在方法体中直接使用父类的引用指向子类的对象形成多态</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通过方法的返回值形成多态"><span class="post-toc-text">通过方法的返回值形成多态</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+    <a href="/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Java的集合类
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/07/01/Java%E7%9A%84Calendar%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java的Calendar类</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/25/win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-  <time datetime="2019-11-25T03:56:10.000Z" itemprop="datePublished">11-25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"  >win10常用快捷键</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/window/" class="color2">window</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/22/OA%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/" class="archive-article-date">
-  <time datetime="2019-11-22T08:16:29.000Z" itemprop="datePublished">11-22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/OA%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/"  >OA接口调用</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/OA/" class="color3">OA</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/21/JDBC%E5%92%8C%E9%A9%B1%E5%8A%A8/" class="archive-article-date">
-  <time datetime="2019-11-21T12:41:59.000Z" itemprop="datePublished">11-21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/21/JDBC%E5%92%8C%E9%A9%B1%E5%8A%A8/"  >JDBC和驱动</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/page/7/">&lt;&lt; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><a class="page-number" href="/archives/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/9/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
