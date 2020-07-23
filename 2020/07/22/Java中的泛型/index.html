@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="泛型是概念">
+  <meta name="description" content="泛型是概念通常情况下集合中允许存放各种不同类型的对象，此时这些对象都被看做Object类型放入，当集合中的这些数据被取出之后也是Object类型，为了表达数据的真实类型需要做强制类型转换，而强制类型转换很可能引发类型转换异常。    为了避免上述问题的发生，从jdk1.5开始提出泛型机制，要求在集合名称的右边使用&lt;数据类型&gt;的方式明确要求该集合可以存放的元素类型，若放入其他类型数据则编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的泛型">
 <meta property="og:url" content="http://fangpengcheng.com/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="泛型是概念">
+<meta property="og:description" content="泛型是概念通常情况下集合中允许存放各种不同类型的对象，此时这些对象都被看做Object类型放入，当集合中的这些数据被取出之后也是Object类型，为了表达数据的真实类型需要做强制类型转换，而强制类型转换很可能引发类型转换异常。    为了避免上述问题的发生，从jdk1.5开始提出泛型机制，要求在集合名称的右边使用&lt;数据类型&gt;的方式明确要求该集合可以存放的元素类型，若放入其他类型数据则编">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-22T09:51:16.000Z">
-<meta property="article:modified_time" content="2020-07-22T09:58:40.403Z">
+<meta property="article:modified_time" content="2020-07-23T03:08:37.894Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -147,10 +147,11 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="泛型是概念"><a href="#泛型是概念" class="headerlink" title="泛型是概念"></a>泛型是概念</h2>
+            <h2 id="泛型是概念"><a href="#泛型是概念" class="headerlink" title="泛型是概念"></a>泛型是概念</h2><p>通常情况下集合中允许存放各种不同类型的对象，此时这些对象都被看做Object类型放入，当集合中的这些数据被取出之后也是Object类型，为了表达数据的真实类型需要做强制类型转换，而强制类型转换很可能引发类型转换异常。<br>    为了避免上述问题的发生，从jdk1.5开始提出泛型机制，要求在集合名称的右边使用&lt;数据类型&gt;的方式明确要求该集合可以存放的元素类型，若放入其他类型数据则编译报错。<br>如：<br>    List<String> lt1 = new LinkedList<String>();  - 元素类型只能是String类型</String></String></p>
+<pre><code>泛型的本质就是参数化类型，也就是让数据类型作为参数传递的方式，其中E相当于形式参数负责占位，当准备集合时&lt;&gt;中的数据类型相当于实际参数负责给形式参数E进行赋值，此时集合中所有E都被替换为实际参数类型，由于实际参数可以传递的类型非常广泛，因此得名&quot;泛型&quot;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.使用泛型机制准备一个集合</span><br><span class="line">List&lt;String&gt; lt1 &#x3D; new LinkedList&lt;String&gt;();</span><br><span class="line">&#x2F;&#x2F;向集合中添加元素</span><br><span class="line">lt1.add(&quot;one&quot;);</span><br><span class="line">&#x2F;&#x2F;lt1.add(2); error</span><br><span class="line">System.out.println(&quot;lt1 &#x3D; &quot; + lt1); &#x2F;&#x2F;[one]</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;----------------------------------&quot;);</span><br><span class="line">&#x2F;&#x2F;2.从集合中取出元素</span><br><span class="line">String str1 &#x3D; lt1.get(0);</span><br><span class="line">System.out.println(&quot;获取到的元素是：&quot; + str1);</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;----------------------------------&quot;);</span><br><span class="line">&#x2F;&#x2F;集合中元素的类型是Integer</span><br><span class="line">List&lt;Integer&gt; lt2 &#x3D; new LinkedList&lt;Integer&gt;();</span><br><span class="line">&#x2F;&#x2F;元素类型为Student</span><br><span class="line">List&lt;Student&gt; lt3 &#x3D; new LinkedList&lt;Student&gt;();</span><br><span class="line">&#x2F;&#x2F;从jdk1.7开始增加新特性：后面&lt;&gt;中的数据类型可以省略  叫做菱形特性</span><br><span class="line">List&lt;Student&gt; lt4 &#x3D; new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年07月22日 17:58</p>
+        <p>最后更新： 2020年07月23日 11:08</p>
         <p>原始链接： <a class="post-url" href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" title="Java中的泛型">http://fangpengcheng.com/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
