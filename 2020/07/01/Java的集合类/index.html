@@ -8,20 +8,18 @@
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="基本概念Java语言中集合框架的顶层接口是：java.util.Collection 和 java.util.Map。其中Collection接口中存放元素的基本单位是：单个元素。其中Map接口中存放元素的基本单位是：单对元素。在以后的开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口。         Collection接口的常">
+  <meta name="description" content="基本概念Java语言中集合框架的顶层接口是：java.util.Collection 和 java.util.Map。其中Collection接口中存放元素的基本单位是：单个元素。其中Map接口中存放元素的基本单位是：单对元素。在以后的开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口。 Collection接口的常用方法boole">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java的集合类">
 <meta property="og:url" content="http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="基本概念Java语言中集合框架的顶层接口是：java.util.Collection 和 java.util.Map。其中Collection接口中存放元素的基本单位是：单个元素。其中Map接口中存放元素的基本单位是：单对元素。在以后的开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口。         Collection接口的常">
+<meta property="og:description" content="基本概念Java语言中集合框架的顶层接口是：java.util.Collection 和 java.util.Map。其中Collection接口中存放元素的基本单位是：单个元素。其中Map接口中存放元素的基本单位是：单对元素。在以后的开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口。 Collection接口的常用方法boole">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/%E9%9B%86%E5%90%88.png">
 <meta property="article:published_time" content="2020-07-01T06:13:29.000Z">
-<meta property="article:modified_time" content="2020-07-21T09:37:05.585Z">
+<meta property="article:modified_time" content="2020-07-24T09:48:12.112Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/%E9%9B%86%E5%90%88.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -150,10 +148,6 @@
       
             
             <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Java语言中集合框架的顶层接口是：java.util.Collection 和 java.util.Map。<br>其中Collection接口中存放元素的基本单位是：单个元素。<br>其中Map接口中存放元素的基本单位是：单对元素。<br>在以后的开发中很少直接使用Collection接口，而是更多的使用该接口的子接口：List接口、Queue接口以及Set接口。</p>
-<p>
-    <img src="/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/集合.png" width="800px" height="800px">
-</p>
-
 <h2 id="Collection接口的常用方法"><a href="#Collection接口的常用方法" class="headerlink" title="Collection接口的常用方法"></a>Collection接口的常用方法</h2><h4 id="boolean-add-E-e"><a href="#boolean-add-E-e" class="headerlink" title="boolean add(E e)"></a>boolean add(E e)</h4><ul>
 <li>用于将参数指定的元素e放入当前集合中。<h4 id="boolean-addAll-Collection-lt-extends-E-gt-c"><a href="#boolean-addAll-Collection-lt-extends-E-gt-c" class="headerlink" title="boolean addAll(Collection&lt;? extends E&gt; c)"></a>boolean addAll(Collection&lt;? extends E&gt; c)</h4></li>
 <li>用于将参数集合c中的所有元素放入当前集合中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.声明Collection类型的引用指向实现类的对象，形成多态</span><br><span class="line">&#x2F;&#x2F;Collection c1 &#x3D; new Collection(); error Collection是接口不能构造对象</span><br><span class="line">Collection c1 &#x3D; new ArrayList();</span><br><span class="line">&#x2F;&#x2F;打印集合中的所有内容，自动调用ArrayList类中的toString()方法</span><br><span class="line">&#x2F;&#x2F;默认打印格式为:[元素1,元素2,···]</span><br><span class="line"></span><br><span class="line">System.out.println(c1);&#x2F;&#x2F;[]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2.向集合中添加单个元素</span><br><span class="line">boolean b1 &#x3D; c1.add(new String(&quot;One&quot;));</span><br><span class="line">System.out.println(c1);&#x2F;&#x2F;[One]</span><br><span class="line">System.out.println(b1);&#x2F;&#x2F;true</span><br><span class="line">boolean b2 &#x3D; c1.add(new Integer(2));</span><br><span class="line">System.out.println(c1);&#x2F;&#x2F;[One, 2]</span><br><span class="line">System.out.println(b2);&#x2F;&#x2F;true</span><br><span class="line">&#x2F;&#x2F;当打印集合中的所有元素时，本质上就是让每个元素调用自己类型的toString()方法</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;3.实现指定集合中的所有元素都放入到当前集合中</span><br><span class="line">&#x2F;&#x2F;准备另外一个集合</span><br><span class="line">Collection c2 &#x3D; new ArrayList();</span><br><span class="line">c2.add(&quot;three&quot;);</span><br><span class="line">c2.add(4);&#x2F;&#x2F;自动装箱机制</span><br><span class="line">System.out.println(&quot;c2&#x3D;&quot;+c2);&#x2F;&#x2F;c2&#x3D;[three, 4]</span><br><span class="line">&#x2F;&#x2F;将集合c2中的所有元素放入集合c1中，原则是将c2中的元素一个个添加到c1中</span><br><span class="line">b1 &#x3D;c1.addAll(c2);</span><br><span class="line">System.out.println(b1);&#x2F;&#x2F;true</span><br><span class="line">System.out.println(c1);&#x2F;&#x2F;[One, 2, three, 4]</span><br><span class="line">&#x2F;&#x2F;将集合c2看做一个对象，整体放入集合c1中</span><br><span class="line">c1.add(c2);</span><br><span class="line">System.out.println(c1);&#x2F;&#x2F;[One, 2, three, 4, [three, 4]]</span><br></pre></td></tr></table></figure>
@@ -187,7 +181,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年07月21日 17:37</p>
+        <p>最后更新： 2020年07月24日 17:48</p>
         <p>原始链接： <a class="post-url" href="/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/" title="Java的集合类">http://fangpengcheng.com/2020/07/01/Java%E7%9A%84%E9%9B%86%E5%90%88%E7%B1%BB/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
