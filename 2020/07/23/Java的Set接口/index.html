@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://fangpengcheng.com/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
 <meta property="og:image" content="http://fangpengcheng.com/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/%E6%9C%89%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
 <meta property="article:published_time" content="2020-07-23T09:53:29.000Z">
-<meta property="article:modified_time" content="2020-07-27T08:37:58.424Z">
+<meta property="article:modified_time" content="2020-07-27T09:45:41.727Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -167,19 +167,13 @@
     <img src="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/有序二叉树的基本概念.png" width="800px" height="400px">
 </p>
 
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>以下方法练习可以参考“List集合”<br> boolean add(E e)<br>          确保此 collection 包含指定的元素（可选操作）。<br> boolean addAll(Collection<? extends E> c) 
-          将指定 collection 中的所有元素都添加到此 collection 中（可选操作）。 
- void clear() 
-          移除此 collection 中的所有元素（可选操作）。 
- boolean contains(Object o) 
-          如果此 collection 包含指定的元素，则返回 true。 
- boolean containsAll(Collection<?> c)<br>          如果此 collection 包含指定 collection 中的所有元素，则返回 true。<br> boolean equals(Object o)<br>          比较此 collection 与指定对象是否相等。<br> int hashCode()<br>          返回此 collection 的哈希码值。<br> boolean isEmpty()<br>          如果此 collection 不包含元素，则返回 true。<br> Iterator<E> iterator()<br>          返回在此 collection 的元素上进行迭代的迭代器。<br> boolean remove(Object o)<br>          从此 collection 中移除指定元素的单个实例，如果存在的话（可选操作）。<br> boolean removeAll(Collection<?> c) 
-          移除此 collection 中那些也包含在指定 collection 中的所有元素（可选操作）。 
- boolean retainAll(Collection<?> c)<br>          仅保留此 collection 中那些也包含在指定 collection 的元素（可选操作）。<br> int size()<br>          返回此 collection 中的元素数。<br> Object[] toArray()<br>          返回包含此 collection 中所有元素的数组。<br><T> T[]<br> toArray(T[] a)<br>          返回包含此 collection 中所有元素的数组；返回数组的运行时类型与指定数组的运行时类型相同。 </T></E></p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>以下方法练习可以参考“List集合”</p>
+<h4 id="boolean-add-E-e"><a href="#boolean-add-E-e" class="headerlink" title="boolean add(E e)"></a>boolean add(E e)</h4><pre><code>确保此 collection 包含指定的元素（可选操作）。 </code></pre><h4 id="boolean-addAll-Collection-lt-extends-E-gt-c"><a href="#boolean-addAll-Collection-lt-extends-E-gt-c" class="headerlink" title="boolean addAll(Collection&lt;? extends E&gt; c)"></a>boolean addAll(Collection&lt;? extends E&gt; c)</h4><pre><code>将指定 collection 中的所有元素都添加到此 collection 中（可选操作）。 </code></pre><h4 id="void-clear"><a href="#void-clear" class="headerlink" title="void clear()"></a>void clear()</h4><pre><code>移除此 collection 中的所有元素（可选操作）。 </code></pre><h4 id="boolean-contains-Object-o"><a href="#boolean-contains-Object-o" class="headerlink" title="boolean contains(Object o)"></a>boolean contains(Object o)</h4><pre><code>如果此 collection 包含指定的元素，则返回 true。 </code></pre><h4 id="boolean-containsAll-Collection-lt-gt-c"><a href="#boolean-containsAll-Collection-lt-gt-c" class="headerlink" title="boolean containsAll(Collection&lt;?&gt; c)"></a>boolean containsAll(Collection&lt;?&gt; c)</h4><pre><code>如果此 collection 包含指定 collection 中的所有元素，则返回 true。 </code></pre><h4 id="boolean-equals-Object-o"><a href="#boolean-equals-Object-o" class="headerlink" title="boolean equals(Object o)"></a>boolean equals(Object o)</h4><pre><code>比较此 collection 与指定对象是否相等。 </code></pre><h4 id="int-hashCode"><a href="#int-hashCode" class="headerlink" title="int hashCode()"></a>int hashCode()</h4><pre><code>返回此 collection 的哈希码值。 </code></pre><h4 id="boolean-isEmpty"><a href="#boolean-isEmpty" class="headerlink" title="boolean isEmpty()"></a>boolean isEmpty()</h4><pre><code>如果此 collection 不包含元素，则返回 true。 </code></pre><h4 id="Iterator-iterator"><a href="#Iterator-iterator" class="headerlink" title="Iterator iterator()"></a>Iterator<E> iterator()</E></h4><pre><code>返回在此 collection 的元素上进行迭代的迭代器。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 3.使用迭代器来访问集合中的每个元素并打印出来</span><br><span class="line">Iterator&lt;String&gt; it1 &#x3D; s1.iterator();</span><br><span class="line">while(it1.hasNext())&#123;</span><br><span class="line">    System.out.println(&quot;获取到的元素是：&quot; + it1.next()); &#x2F;&#x2F;one two three</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="boolean-hasNext"><a href="#boolean-hasNext" class="headerlink" title="boolean hasNext()"></a>boolean hasNext()</h5><pre><code>如果仍有元素可以迭代，则返回 true。 </code></pre><h5 id="E-next"><a href="#E-next" class="headerlink" title="E next()"></a>E next()</h5><pre><code>返回迭代的下一个元素。 </code></pre><h5 id="void-remove"><a href="#void-remove" class="headerlink" title="void remove()"></a>void remove()</h5><pre><code>从迭代器指向的 collection 中移除迭代器返回的最后一个元素（可选操作）。 </code></pre><h4 id="boolean-remove-Object-o"><a href="#boolean-remove-Object-o" class="headerlink" title="boolean remove(Object o)"></a>boolean remove(Object o)</h4><pre><code>从此 collection 中移除指定元素的单个实例，如果存在的话（可选操作）。 </code></pre><h4 id="boolean-removeAll-Collection-lt-gt-c"><a href="#boolean-removeAll-Collection-lt-gt-c" class="headerlink" title="boolean removeAll(Collection&lt;?&gt; c)"></a>boolean removeAll(Collection&lt;?&gt; c)</h4><pre><code>移除此 collection 中那些也包含在指定 collection 中的所有元素（可选操作）。 </code></pre><h4 id="boolean-retainAll-Collection-lt-gt-c"><a href="#boolean-retainAll-Collection-lt-gt-c" class="headerlink" title="boolean retainAll(Collection&lt;?&gt; c)"></a>boolean retainAll(Collection&lt;?&gt; c)</h4><pre><code>仅保留此 collection 中那些也包含在指定 collection 的元素（可选操作）。 </code></pre><h4 id="int-size"><a href="#int-size" class="headerlink" title="int size()"></a>int size()</h4><pre><code>返回此 collection 中的元素数。 </code></pre><h4 id="Object-toArray"><a href="#Object-toArray" class="headerlink" title="Object[] toArray()"></a>Object[] toArray()</h4><pre><code>返回包含此 collection 中所有元素的数组。 </code></pre><h4 id="T"><a href="#T" class="headerlink" title=" T[]"></a><T> T[]</T></h4><p> toArray(T[] a)<br>          返回包含此 collection 中所有元素的数组；返回数组的运行时类型与指定数组的运行时类型相同。 </p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年07月27日 16:37</p>
+        <p>最后更新： 2020年07月27日 17:45</p>
         <p>原始链接： <a class="post-url" href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/" title="Java的Set接口">http://fangpengcheng.com/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -266,12 +260,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Set接口基本概念"><span class="post-toc-text">Set接口基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用方法"><span class="post-toc-text">常用方法</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Set接口基本概念"><span class="post-toc-text">Set接口基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用方法"><span class="post-toc-text">常用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-add-E-e"><span class="post-toc-text">boolean add(E e)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-addAll-Collection-lt-extends-E-gt-c"><span class="post-toc-text">boolean addAll(Collection&lt;? extends E&gt; c)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#void-clear"><span class="post-toc-text">void clear()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-contains-Object-o"><span class="post-toc-text">boolean contains(Object o)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-containsAll-Collection-lt-gt-c"><span class="post-toc-text">boolean containsAll(Collection&lt;?&gt; c)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-equals-Object-o"><span class="post-toc-text">boolean equals(Object o)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#int-hashCode"><span class="post-toc-text">int hashCode()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-isEmpty"><span class="post-toc-text">boolean isEmpty()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Iterator-iterator"><span class="post-toc-text">Iterator iterator()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#boolean-hasNext"><span class="post-toc-text">boolean hasNext()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#E-next"><span class="post-toc-text">E next()</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#void-remove"><span class="post-toc-text">void remove()</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-remove-Object-o"><span class="post-toc-text">boolean remove(Object o)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-removeAll-Collection-lt-gt-c"><span class="post-toc-text">boolean removeAll(Collection&lt;?&gt; c)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#boolean-retainAll-Collection-lt-gt-c"><span class="post-toc-text">boolean retainAll(Collection&lt;?&gt; c)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#int-size"><span class="post-toc-text">int size()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Object-toArray"><span class="post-toc-text">Object[] toArray()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#T"><span class="post-toc-text"> T[]</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java的HashSet集合
+        
+      </span>
+    </a>
   
   
     <a href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
