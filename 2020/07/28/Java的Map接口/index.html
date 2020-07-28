@@ -3,24 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>上传文件 | 房鹏程的博客</title>
+  <title>Java的Map接口 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="如何上传一个文件?上传文件必须注意事项表单input type&#x3D;“file” 必须有namerequest接受的时候不能使用request.getParameter();HTML中基于表单的文件上载”的HTTP请求。使用POST方法提交了HTTP请求，并且其内容类型为“ multipart &#x2F; form-data”，则FileUpload可以解析该请求，并以调用方易于使用的方式提供结果。 Html">
+  <meta name="description" content="基本概念   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素。       K - 用于描述键(Key)的类型。       V - 用于描述值(Value)的类型。   该接口的主要实现类：HashMap类 和 TreeMap类。   该接口中key(键)不允许重复，而且每个key(键)只能对应一个Value(值)。 HashMap和Hashset的关系Ha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上传文件">
-<meta property="og:url" content="http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:title" content="Java的Map接口">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="如何上传一个文件?上传文件必须注意事项表单input type&#x3D;“file” 必须有namerequest接受的时候不能使用request.getParameter();HTML中基于表单的文件上载”的HTTP请求。使用POST方法提交了HTTP请求，并且其内容类型为“ multipart &#x2F; form-data”，则FileUpload可以解析该请求，并以调用方易于使用的方式提供结果。 Html">
+<meta property="og:description" content="基本概念   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素。       K - 用于描述键(Key)的类型。       V - 用于描述值(Value)的类型。   该接口的主要实现类：HashMap类 和 TreeMap类。   该接口中key(键)不允许重复，而且每个key(键)只能对应一个Value(值)。 HashMap和Hashset的关系Ha">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-10-17T11:12:33.000Z">
-<meta property="article:modified_time" content="2020-06-11T09:56:40.189Z">
+<meta property="og:image" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/Set%E5%90%91Map%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png">
+<meta property="article:published_time" content="2020-07-28T06:55:03.000Z">
+<meta property="article:modified_time" content="2020-07-28T07:48:41.687Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Html">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/Set%E5%90%91Map%E8%BD%AC%E6%8D%A2%E7%9A%84%E8%BF%87%E7%A8%8B.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -119,27 +120,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-上传文件" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Java的Map接口" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      上传文件
+      Java的Map接口
     </h1>
     <div class="post-title-bar">
       <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/上传/">上传</a>
-                  
-              </li>
-          
         <li>
-          <i class="fa fa-calendar"></i>  2019-10-17
+          <i class="fa fa-calendar"></i>  2020-07-28
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -155,12 +149,31 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="如何上传一个文件"><a href="#如何上传一个文件" class="headerlink" title="如何上传一个文件?"></a>如何上传一个文件?</h2><h6 id="上传文件必须注意事项"><a href="#上传文件必须注意事项" class="headerlink" title="上传文件必须注意事项"></a>上传文件必须注意事项</h6><p>表单input type=“file” 必须有name<br>request接受的时候不能使用request.getParameter();<br>HTML中基于表单的文件上载”的HTTP请求。使用POST方法提交了HTTP请求，并且其内容类型为“ multipart / form-data”，则FileUpload可以解析该请求，并以调用方易于使用的方式提供结果。</p>
-<h3 id="Html代码"><a href="#Html代码" class="headerlink" title="Html代码"></a>Html代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id&#x3D;&quot;fileId&quot; name&#x3D;&quot;fileName&quot; action&#x3D;&quot;FileServlet&quot; method&#x3D;&quot;post&quot; enctype&#x3D;&quot;multipart&#x2F;form-data&quot;&gt;</span><br><span class="line">    &lt;input  type&#x3D;&quot;file&quot; name&#x3D;&quot;file&quot; id&#x3D;&quot;file&quot;&#x2F;&gt;&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;input 	type&#x3D;&quot;submit&quot; value&#x3D;&quot;上传&quot; &gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>   java.util.Map&lt;K,V&gt;接口中存放元素的基本单位是：单对元素。<br>       K - 用于描述键(Key)的类型。<br>       V - 用于描述值(Value)的类型。<br>   该接口的主要实现类：HashMap类 和 TreeMap类。<br>   该接口中key(键)不允许重复，而且每个key(键)只能对应一个Value(值)。</p>
+<h2 id="HashMap和Hashset的关系"><a href="#HashMap和Hashset的关系" class="headerlink" title="HashMap和Hashset的关系"></a>HashMap和Hashset的关系</h2><p>Hashset是基于HashMap实现的</p>
+<p>
+    <img src="/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/Set向Map转换的过程.png" width="800px" height="400px">
+</p>
+
+<h2 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h2><p>V put(K key, V value) - 用于将key和value组成一对放入当前集合中。<br>        - 若实现增加功能则返回null；若实现修改功能则返回原来的value.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.声明Map类型的引用指向实现类的对象</span><br><span class="line">Map&lt;Integer, String&gt; m1 &#x3D; new HashMap&lt;Integer, String&gt;();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2.向集合中添加元素</span><br><span class="line">String str1 &#x3D; m1.put(1, &quot;one&quot;);</span><br><span class="line">System.out.println(&quot;str1 &#x3D; &quot; + str1); &#x2F;&#x2F;null</span><br><span class="line">System.out.println(&quot;m1 &#x3D; &quot; + m1);&#x2F;&#x2F;&#123;1&#x3D;one&#125;</span><br><span class="line">&#x2F;&#x2F;3.修改</span><br><span class="line">str1 &#x3D; m1.put(1, &quot;eleven&quot;);</span><br><span class="line">System.out.println(&quot;str1 &#x3D; &quot; + str1); &#x2F;&#x2F;one</span><br><span class="line">System.out.println(&quot;m1 &#x3D; &quot; + m1); &#x2F;&#x2F;&#123;1&#x3D;eleven&#125;</span><br></pre></td></tr></table></figure>
+<p>boolean containsKey(Object key)<br>    - 用于判断当前集合中是否存在参数指定的key。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;3.查找Map集合中是否拥有指定的key以及指定的value并打印</span><br><span class="line">boolean b1 &#x3D; m1.containsKey(&quot;4&quot;);</span><br><span class="line">System.out.println(&quot;b1 &#x3D; &quot; + b1); &#x2F;&#x2F;false</span><br><span class="line">b1 &#x3D; m1.containsKey(&quot;1&quot;);</span><br><span class="line">System.out.println(&quot;b1 &#x3D; &quot; + b1); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+<p>boolean containsValue(Object value)<br>    - 用于判断当前集合中是否存在参数指定的value。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b1 &#x3D; m1.containsValue(&quot;eleven&quot;);</span><br><span class="line">System.out.println(&quot;b1 &#x3D; &quot; + b1); &#x2F;&#x2F;false</span><br><span class="line">b1 &#x3D; m1.containsValue(&quot;three&quot;);</span><br><span class="line">System.out.println(&quot;b1 &#x3D; &quot; + b1); &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<p>V get(Object key)<br>    - 用于根据参数指定的key返回对应的value，若key不存在则返回null。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;4.根据参数指定的key返回对应的value，若不存在则返回null</span><br><span class="line">String str1 &#x3D; m1.get(&quot;5&quot;);</span><br><span class="line">System.out.println(&quot;str1 &#x3D; &quot; + str1); &#x2F;&#x2F;null</span><br><span class="line">str1 &#x3D; m1.get(&quot;2&quot;);</span><br><span class="line">System.out.println(&quot;str1 &#x3D; &quot; + str1); &#x2F;&#x2F;two</span><br></pre></td></tr></table></figure>
+<p>V remove(Object key)<br>    - 用于根据参数指定的key来删除键值对，返回该key对应的value。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str2 &#x3D; m1.remove(&quot;10&quot;);</span><br><span class="line">System.out.println(&quot;str2 &#x3D; &quot; + str2); &#x2F;&#x2F;null</span><br><span class="line">System.out.println(&quot;m1 &#x3D; &quot; + m1); &#x2F;&#x2F;&#123;1&#x3D;one, 2&#x3D;two, 3&#x3D;three&#125;</span><br></pre></td></tr></table></figure>
+<p>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()<br>    - 用于将Map集合转换为Set集合，集合中的每个元素都是键值对。<br>    - 其中Map.Entry是接口类型，常用方法有：<br>        K getKey() - 用于获取键值对中的键。<br>        V getValue() - 用于获取键值对中的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;实现Map集合向Set集合的转换</span><br><span class="line">Set&lt;Entry&lt;String, String&gt;&gt; s1 &#x3D; m1.entrySet();</span><br><span class="line">&#x2F;&#x2F;使用for each结构来打印Set集合中的所有元素</span><br><span class="line">for (Entry&lt;String, String&gt; e1 : s1) &#123;</span><br><span class="line">    System.out.println(e1.getKey()+&quot;&#x3D;&quot;+e1.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Set<K> keySet() - 用于将Map集合中的所有键放入Set集合中并返回。</K></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;实现Map集合中所有的key转换为Set集合</span><br><span class="line">Set&lt;String&gt; k1 &#x3D; m1.keySet();</span><br><span class="line">&#x2F;&#x2F;使用for each结构打印Set集合中的所有元素</span><br><span class="line">for (String s2 : k1) &#123;</span><br><span class="line">    System.out.println(s2+&quot;&#x3D;&quot;+m1.get(s2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年06月11日 17:56</p>
-        <p>原始链接： <a class="post-url" href="/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" title="上传文件">http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</a></p>
+        <p>最后更新： 2020年07月28日 15:48</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/" title="Java的Map接口">http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
                 <img src="/images/logo.png" alt="房鹏程">
@@ -186,7 +199,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/&title=《上传文件》 — 房鹏程的博客&pic=images/html.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/&title=《Java的Map接口》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -196,22 +209,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/&title=《上传文件》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/&title=《Java的Map接口》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《上传文件》 — 房鹏程的博客&url=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/&via=http://fangpengcheng.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的Map接口》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/&via=http://fangpengcheng.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -221,7 +234,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2019/10/17/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84Map%E6%8E%A5%E5%8F%A3/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -235,8 +248,6 @@
       
     <a href="/tags/Java/" class="color5">Java</a>
       
-    <a href="/tags/Html/" class="color5">Html</a>
-      
   </li>
 
         </ul>
@@ -248,26 +259,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何上传一个文件"><span class="post-toc-text">如何上传一个文件?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#上传文件必须注意事项"><span class="post-toc-text">上传文件必须注意事项</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Html代码"><span class="post-toc-text">Html代码</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HashMap和Hashset的关系"><span class="post-toc-text">HashMap和Hashset的关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用的方法"><span class="post-toc-text">常用的方法</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/10/24/%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/28/Java%E7%9A%84%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          表单提交方式
+          Java的异常机制
         
       </span>
     </a>
   
   
-    <a href="/2019/10/14/%E7%A6%81%E7%94%A8Html%E6%A0%87%E7%AD%BE/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">禁用Html标签</span>
+    <a href="/2020/07/28/OA%E7%9A%84%E5%AE%9E%E7%94%A8sql%E8%AF%AD%E5%8F%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">OA的实用sql语句</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
