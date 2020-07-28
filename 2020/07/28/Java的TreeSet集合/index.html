@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java的TreeSet集合 | 房鹏程的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Welcome to my blog" />
+  
+  <meta name="description" content="二叉树?二叉树就是指每个节点最多只有两个子节点的树形结构。         有序二叉树?满足以下3个条件的二叉树就叫做有序二叉树，具体如下：    a.要求左子树中任意节点都小于根节点；    b.要求右子树中任意节点都大于根节点；    c.要求左子树和右子树的内部也要遵守上述要求；         TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实现的，当插入新元素到Tre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的TreeSet集合">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="房鹏程的博客">
+<meta property="og:description" content="二叉树?二叉树就是指每个节点最多只有两个子节点的树形结构。         有序二叉树?满足以下3个条件的二叉树就叫做有序二叉树，具体如下：    a.要求左子树中任意节点都小于根节点；    b.要求右子树中任意节点都大于根节点；    c.要求左子树和右子树的内部也要遵守上述要求；         TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实现的，当插入新元素到Tre">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
+<meta property="og:image" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/%E6%9C%89%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
+<meta property="article:published_time" content="2020-07-28T01:56:50.000Z">
+<meta property="article:modified_time" content="2020-07-28T05:54:20.272Z">
+<meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">My blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a target="_blank" href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a target="_blank" href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        My blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        满招损 谦受益
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="主页" target="_blank" href="//">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/15538373365">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5139165230">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="bilibili" target="_blank" href="//space.bilibili.com/4427375">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Java的TreeSet集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Java的TreeSet集合
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-07-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树?"></a>二叉树?</h2><p>二叉树就是指每个节点最多只有两个子节点的树形结构。</p>
+<p>
+    <img src="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/二叉树的基本概念.png" width="800px" height="400px">
+</p>
+
+<h2 id="有序二叉树"><a href="#有序二叉树" class="headerlink" title="有序二叉树?"></a>有序二叉树?</h2><p>满足以下3个条件的二叉树就叫做有序二叉树，具体如下：<br>    a.要求左子树中任意节点都小于根节点；<br>    b.要求右子树中任意节点都大于根节点；<br>    c.要求左子树和右子树的内部也要遵守上述要求；</p>
+<p>
+    <img src="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/有序二叉树的基本概念.png" width="800px" height="400px">
+</p>
+
+<h2 id="TreeSet集合的原理"><a href="#TreeSet集合的原理" class="headerlink" title="TreeSet集合的原理"></a>TreeSet集合的原理</h2><p>由于TreeSet集合的底层是采用有序二叉树实现的，当插入新元素到TreeSet集合时需要比较新元素与已有元素的大小来确定新元素的位置，从而保证二叉树依然有序，而比较方式有两种<br>   a.使用元素的自然排序规则比较，也就是让元素类型实现java.lang.Comparable接口；<br>   b.使用比较器规则比较，也就是创建TreeSet集合时传入java.util.Comparator接口；</p>
+<h2 id="自然排序规则比较"><a href="#自然排序规则比较" class="headerlink" title="自然排序规则比较"></a>自然排序规则比较</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Student&gt; s2 &#x3D; new TreeSet&lt;Student&gt;();</span><br><span class="line">&#x2F;&#x2F; 添加元素</span><br><span class="line">s2.add(new Student(1003, &quot;zhaoyun&quot;, 25));</span><br><span class="line">s2.add(new Student(1001, &quot;zhangfei&quot;, 30));</span><br><span class="line">s2.add(new Student(1005, &quot;machao&quot;, 18));</span><br><span class="line">s2.add(new Student(1002, &quot;guanyu&quot;, 35));</span><br><span class="line">s2.add(new Student(1004, &quot;huangzhong&quot;, 40));</span><br><span class="line">&#x2F;&#x2F; 使用增强版的for循环打印所有元素</span><br><span class="line">for (Student ts : s2) &#123;</span><br><span class="line">    System.out.println(ts);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Student需要继承Comparable接口 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">public class Student implements Comparable&lt;Student&gt;&#123;</span><br><span class="line">	private int id;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Student() &#123;</span><br><span class="line">		super();</span><br><span class="line">	&#125;</span><br><span class="line">	public Student(int id, String name, int age) &#123;</span><br><span class="line">		super();</span><br><span class="line">		setId(id);</span><br><span class="line">		setName(name);</span><br><span class="line">		setAge(age);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int getId() &#123;</span><br><span class="line">		return id;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setId(int id) &#123;</span><br><span class="line">		if(id &gt; 0)&#123;</span><br><span class="line">			this.id &#x3D; id;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			System.out.println(&quot;学号不合理！！！&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return name;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">	&#125;</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line">		if(age &gt;&#x3D; 4 &amp;&amp; age &lt;&#x3D; 60)&#123;</span><br><span class="line">			this.age &#x3D; age;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			System.out.println(&quot;年龄不合理！！！&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		return &quot;Student [id&#x3D;&quot; + id + &quot;, name&#x3D;&quot; + name + &quot;, age&#x3D;&quot; + age + &quot;]&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line">		final int prime &#x3D; 31;</span><br><span class="line">		int result &#x3D; 1;</span><br><span class="line">		result &#x3D; prime * result + id;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line">		if (this &#x3D;&#x3D; obj)</span><br><span class="line">			return true;</span><br><span class="line">		if (obj &#x3D;&#x3D; null)</span><br><span class="line">			return false;</span><br><span class="line">		if (getClass() !&#x3D; obj.getClass())</span><br><span class="line">			return false;</span><br><span class="line">		Student other &#x3D; (Student) obj;</span><br><span class="line">		if (id !&#x3D; other.id)</span><br><span class="line">			return false;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public int compareTo(Student o) &#123;</span><br><span class="line">		&#x2F;&#x2F;表示调用对象和参数对象相等，其中调用对象指新增加的元素，参数对象指已有元素</span><br><span class="line">		&#x2F;&#x2F;return 0;  </span><br><span class="line">		&#x2F;&#x2F;表示调用对象大于参数对象，也就是新增加的元素大</span><br><span class="line">		&#x2F;&#x2F;return 1;</span><br><span class="line">		&#x2F;&#x2F;表示调用对象小于参数对象，也就是新增加的元素小</span><br><span class="line">		&#x2F;&#x2F;return -1;</span><br><span class="line">		&#x2F;&#x2F;表示按照学号进行排序</span><br><span class="line">		&#x2F;&#x2F;return this.getId() - o.getId();</span><br><span class="line">		&#x2F;&#x2F;表示按照姓名进行排序</span><br><span class="line">		&#x2F;&#x2F;return this.getName().compareTo(o.getName());</span><br><span class="line">		&#x2F;&#x2F;表示按照年龄进行排序</span><br><span class="line">		&#x2F;&#x2F;return this.getAge() - o.getAge();</span><br><span class="line">		&#x2F;&#x2F;表示先按照学号排序，若学号相同则按照姓名排序</span><br><span class="line">		int num &#x3D; this.getId() - o.getId();</span><br><span class="line">		return num !&#x3D; 0? num: this.getName().compareTo(o.getName());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;return 0;  </span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;return 1;</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;return -1;</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;return this.getId() - o.getId();</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;return this.getName().compareTo(o.getName());</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;return this.getAge() - o.getAge();</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;int num &#x3D; this.getId() - o.getId();</span><br><span class="line">&#x2F;&#x2F;return num !&#x3D; 0? num: this.getName().compareTo(o.getName());</span><br><span class="line">Student [id&#x3D;1001, name&#x3D;zhangfei, age&#x3D;30]</span><br><span class="line">Student [id&#x3D;1002, name&#x3D;guanyu, age&#x3D;35]</span><br><span class="line">Student [id&#x3D;1003, name&#x3D;zhaoyun, age&#x3D;25]</span><br><span class="line">Student [id&#x3D;1004, name&#x3D;huangzhong, age&#x3D;40]</span><br><span class="line">Student [id&#x3D;1005, name&#x3D;machao, age&#x3D;18]</span><br></pre></td></tr></table></figure>
+<h2 id="使用比较器来指定比较的规则"><a href="#使用比较器来指定比较的规则" class="headerlink" title="使用比较器来指定比较的规则"></a>使用比较器来指定比较的规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用比较器来指定比较的规则</span><br><span class="line">&#x2F;&#x2F; 接口&#x2F;父类类型 引用变量名 &#x3D; new 接口&#x2F;父类类型()&#123; 方法的重写 &#125;;</span><br><span class="line">Comparator&lt;Student&gt; c1 &#x3D; new Comparator&lt;Student&gt;() &#123;</span><br><span class="line">    &#x2F;&#x2F; o1代表新增加的元素, o2代表集合中已有的元素</span><br><span class="line">    @Override</span><br><span class="line">    public int compare(Student o1, Student o2) &#123;</span><br><span class="line">        &#x2F;&#x2F; 按照学号大小进行排序</span><br><span class="line">        return o1.getId() - o2.getId();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Comparator&lt;Student&gt; c2 &#x3D; new Comparator&lt;Student&gt;() &#123;</span><br><span class="line">    &#x2F;&#x2F; o1代表新增加的元素, o2代表集合中已有的元素</span><br><span class="line">    @Override</span><br><span class="line">    public int compare(Student o1, Student o2) &#123;</span><br><span class="line">        &#x2F;&#x2F; 按照姓名大小进行排序</span><br><span class="line">        return o1.getName().compareTo(o2.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Comparator&lt;Student&gt; c3 &#x3D; new Comparator&lt;Student&gt;() &#123;</span><br><span class="line">    &#x2F;&#x2F; o1代表新增加的元素, o2代表集合中已有的元素</span><br><span class="line">    @Override</span><br><span class="line">    public int compare(Student o1, Student o2) &#123;</span><br><span class="line">        &#x2F;&#x2F; 按照年龄大小进行排序</span><br><span class="line">        return o1.getAge() - o2.getAge();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 表示该集合按照c1指定的规则来比较元素的大小</span><br><span class="line">Set&lt;Student&gt; s3 &#x3D; new TreeSet&lt;Student&gt;(c3);</span><br><span class="line">&#x2F;&#x2F; 添加元素</span><br><span class="line">s3.add(new Student(1003, &quot;zhaoyun&quot;, 25));</span><br><span class="line">s3.add(new Student(1001, &quot;zhangfei&quot;, 30));</span><br><span class="line">s3.add(new Student(1005, &quot;machao&quot;, 18));</span><br><span class="line">s3.add(new Student(1002, &quot;guanyu&quot;, 35));</span><br><span class="line">s3.add(new Student(1004, &quot;huangzhong&quot;, 40));</span><br><span class="line">&#x2F;&#x2F; 使用增强版的for循环打印所有元素</span><br><span class="line">for (Student ts : s3) &#123;</span><br><span class="line">    System.out.println(ts);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年07月28日 13:54</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" title="Java的TreeSet集合">http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/&title=《Java的TreeSet集合》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/&title=《Java的TreeSet集合》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的TreeSet集合》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树"><span class="post-toc-text">二叉树?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有序二叉树"><span class="post-toc-text">有序二叉树?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TreeSet集合的原理"><span class="post-toc-text">TreeSet集合的原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自然排序规则比较"><span class="post-toc-text">自然排序规则比较</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用比较器来指定比较的规则"><span class="post-toc-text">使用比较器来指定比较的规则</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java的HashSet集合</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 房鹏程<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://fangpengcheng.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/JDBC/">JDBC</a><a class="category-link" href="/categories/List/">List</a><a class="category-link" href="/categories/Map/">Map</a><a class="category-link" href="/categories/Maven/">Maven</a><a class="category-link" href="/categories/Maven/Java/">Java</a><a class="category-link" href="/categories/OA/">OA</a><a class="category-link" href="/categories/frame%E5%92%8Ciframe/">frame和iframe</a><a class="category-link" href="/categories/ifream/">ifream</a><a class="category-link" href="/categories/json/">json</a><a class="category-link" href="/categories/log4j/">log4j</a><a class="category-link" href="/categories/request/">request</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0/">上传</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0%E3%80%81%E5%88%A0%E9%99%A4/">上传、删除</a><a class="category-link" href="/categories/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a><a class="category-link" href="/categories/%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E6%B1%89%E5%8C%96/">下载、安装、汉化</a><a class="category-link" href="/categories/%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/">九九乘法表</a><a class="category-link" href="/categories/%E5%88%B7%E6%96%B0/">刷新</a><a class="category-link" href="/categories/%E5%8D%B8%E8%BD%BD/">卸载</a><a class="category-link" href="/categories/%E5%AE%89%E8%A3%85/">安装</a><a class="category-link" href="/categories/%E5%BE%AA%E7%8E%AF/">循环</a><a class="category-link" href="/categories/%E6%8E%92%E5%BA%8F/">排序</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5/">数据库连接</a><a class="category-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a><a class="category-link" href="/categories/%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE/">标签设置</a><a class="category-link" href="/categories/%E6%B1%89%E5%8C%96/">汉化</a><a class="category-link" href="/categories/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/">清理缓存</a><a class="category-link" href="/categories/%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6/">节点事件</a><a class="category-link" href="/categories/%E8%A1%A8%E5%8D%95/">表单</a><a class="category-link" href="/categories/%E9%80%92%E5%BD%92/">递归</a><a class="category-link" href="/categories/%E9%87%8D%E8%BD%BD/">重载</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 14.44px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 16.67px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.33px;">Mysql</a> <a href="/tags/OA/" style="font-size: 17.78px;">OA</a> <a href="/tags/Oracle/" style="font-size: 15.56px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 15.56px;">SQL</a> <a href="/tags/SVN/" style="font-size: 14.44px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.11px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.11px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 14.44px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 16.67px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.33px;">Mysql</a> <a href="/tags/OA/" style="font-size: 17.78px;">OA</a> <a href="/tags/Oracle/" style="font-size: 15.56px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 15.56px;">SQL</a> <a href="/tags/SVN/" style="font-size: 14.44px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.11px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.11px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<!-- 爱心特效 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clicksocialvalue.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="/js/snow.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+</body>
+</html>
