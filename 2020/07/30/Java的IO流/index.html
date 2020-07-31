@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>房鹏程的博客</title>
+  <title>Java的IO流 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/page/2/index.html">
+  <meta name="description" content="基本概念I&#x2F;O就是Input&#x2F;Output的简写，也就是输入&#x2F;输出的含义。I&#x2F;O流就是指像流水一样不间断地进行读写数据的状态。 基本分类   按照数据读写的单位不同分为：字节流 和 字符流。   其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件。   其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件。    按照数据流动的方向不同分为：输入流 和 输出流(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的IO流">
+<meta property="og:url" content="http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="基本概念I&#x2F;O就是Input&#x2F;Output的简写，也就是输入&#x2F;输出的含义。I&#x2F;O流就是指像流水一样不间断地进行读写数据的状态。 基本分类   按照数据读写的单位不同分为：字节流 和 字符流。   其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件。   其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件。    按照数据流动的方向不同分为：输入流 和 输出流(">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-30T05:55:07.000Z">
+<meta property="article:modified_time" content="2020-07-30T05:57:04.370Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,54 +118,114 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-Java的TreeSet集合" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Java的IO流" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/"  >Java的TreeSet集合</a>
+    <h1 class="post-title" itemprop="name">
+      Java的IO流
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-07-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java的TreeSet集合" title="Java的TreeSet集合">
-                
+            
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>I/O就是Input/Output的简写，也就是输入/输出的含义。<br>I/O流就是指像流水一样不间断地进行读写数据的状态。</p>
+<h2 id="基本分类"><a href="#基本分类" class="headerlink" title="基本分类"></a>基本分类</h2><p>   按照数据读写的单位不同分为：字节流 和 字符流。<br>   其中字节流主要指以字节为单位进行读写的过程，可以读写任意类型的文件。<br>   其中字符流主要指以字符(2个字节)为单位进行读写的过程，只能读写文本文件。</p>
+<p>   按照数据流动的方向不同分为：输入流 和 输出流(站在程序的角度)。<br>   其中输入流主要指从文件中读取数据内容输入到程序中。<br>   其中输出流主要指将程序中的数据内容输出到文件中，也就是写入文件。</p>
+<h2 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h2><p>   字节流的顶层父类：InputStream类 和 OutputStream类     - 抽象类<br>   其中InputStream类的常用子类：<br>       FileInputStream类、DataInputStream类、ObjectInputStream类<br>   其中OutputStream类的常用子类：<br>       FileOutputStream类、DataOutputStream类、ObjectOutputStream类</p>
+<p>   字符流的顶层父类：Reader类  和  Writer类              - 抽象类<br>   其中Reader类的常用子类：<br>       BufferedReader类、InputStreamReader类<br>   其中Writer类的常用子类：<br>       BufferedWriter类、OutputStreamWriter类<br>补充：<br>   java.io.PrintStream类是OutputStream类的间接子类。</p>
+<h2 id="FileOutputStream类"><a href="#FileOutputStream类" class="headerlink" title="FileOutputStream类"></a>FileOutputStream类</h2><h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><p>FileOutputStream类主要用于写入图像数据之类的原始字节流到输出流中</p>
+<h4 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h4><p>   FileOutputStream(String name) - 根据参数指定的文件名来构造对象。<br>   FileOutputStream(String name, boolean append)<br>       - 以追加的方式根据文件名构造对象。<br>   void write(int b)<br>       - 用于将参数指定的单个字节写入输出流。<br>   void write(byte[] b, int off, int len)<br>       - 用于将数组b中下标从off开始的len个字节写入输出流。<br>   void write(byte[] b)<br>       - 用于将数组b中所有字节写入输出流。<br>   void close()<br>       - 用于关闭流并释放有关的资源。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年07月30日 13:57</p>
+        <p>原始链接： <a class="post-url" href="/2020/07/30/Java%E7%9A%84IO%E6%B5%81/" title="Java的IO流">http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                二叉树?二叉树就是指每个节点最多只有两个子节点的树形结构。
+        </footer>
+    </div>
+</div>
 
-    
-
-
-有序二叉树?满足以下3个条件的二叉树就叫做有序二叉树，具体如下：    a.要求左子树中任意节点都小于根节点；    b.要求右子树中任意节点都大于根节点；    c.要求左子树和右子树的内部也要遵守上述要求；
-
-    
-
-
-TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实...
-            </p>
-        </div>
       
+        
+            
+
         
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/&title=《Java的IO流》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/&title=《Java的IO流》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的IO流》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/07/30/Java%E7%9A%84IO%E6%B5%81/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-07-28</li>
             
             
   <li class="article-footer-tags">
@@ -174,246 +237,31 @@ TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实...
 
         </ul>
         
-            <a href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/#more" class="article-more-link" >more&gt;&gt;</a>
-        
     </footer>
   </div>
 </article>
 
 
-  
-    <article id="post-java的HashSet集合" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/"  >java的HashSet集合</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="java的HashSet集合" title="java的HashSet集合">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                HashSet的基本概念元素放入HashSet集合的原理(理解)(1)使用新元素调用hashCode()方法得到该元素的哈希码值；(2)将哈希码值交给哈希算法算出新元素在哈希表数组的索引位置；(3)若该位置没有元素，则直接将新元素放入即可；(4)若该位置有元素，则使用新元素与已有元素依次比较；(5)若新元素与已有元素相等，则放弃新元素的插入保留旧元素；(6)若新元素与已有...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-07-27</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Java的Set接口" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/"  >Java的Set接口</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java的Set接口" title="Java的Set接口">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Set接口基本概念java.util.Set接口是Collection接口的子接口，与List接口是平级关系。该接口与List接口相比元素没有先后次序，并且不允许有重复的元素。该接口的主要实现类：HashSet类 和 TreeSet类。其中HashSet类的底层是采用哈希表进行数据管理的。
-
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本分类"><span class="post-toc-text">基本分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本框架"><span class="post-toc-text">基本框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FileOutputStream类"><span class="post-toc-text">FileOutputStream类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基本概念-1"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用的方法"><span class="post-toc-text">常用的方法</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
     
 
-
-其中TreeSet类的底层是采用有序二叉树进行数据管理的。
-二叉树...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-07-23</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
+<nav id="article-nav">
   
-    <article id="post-Java的Queue接口" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    <a href="/2020/07/29/Java%E7%9A%84File%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java的File类</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/"  >Java的Queue接口</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java的Queue接口" title="Java的Queue接口">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Queue接口java.util.Queue接口是Collection接口的子接口，与List接口是平级关系。该接口主要用于描述具有先进先出特性的数据结构，叫做队列(FIFO first in first out)该接口的主要实现类是：LinkedList，该类在增删方面有一定的优势。
-常用方法12&#x2F;&#x2F;1.声明Queue接口类型的引用指向实现类的对象Q...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-07-23</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Java中的泛型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/"  >Java中的泛型</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" >
-                
-                <img src="http://fangpengcheng.com/images/java.png" alt="Java中的泛型" title="Java中的泛型">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                泛型是概念通常情况下集合中允许存放各种不同类型的对象，此时这些对象都被看做Object类型放入，当集合中的这些数据被取出之后也是Object类型，为了表达数据的真实类型需要做强制类型转换，而强制类型转换很可能引发类型转换异常。    为了避免上述问题的发生，从jdk1.5开始提出泛型机制，要求在集合名称的右边使用&lt;数据类型&gt;的方式明确要求该集合可以存放的元素类...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-07-22</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&lt;&lt; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/3/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
@@ -445,7 +293,7 @@ TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实...
   var mihoConfig = {
       root: "http://fangpengcheng.com",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 0
   }
@@ -557,6 +405,13 @@ TreeSet集合的原理由于TreeSet集合的底层是采用有序二叉树实...
 <script src="/js/animate.js"></script>
 
 
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
 
   </div>
 <!-- 爱心特效 -->
