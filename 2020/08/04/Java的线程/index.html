@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java的线程 | 房鹏程的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Welcome to my blog" />
+  
+  <meta name="description" content="基本概念   程序 - 数据结构 + 算法，主要指存放在硬盘上的可执行文件。   进程 - 主要指运行在内存中的程序。    目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限。   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的线程">
+<meta property="og:url" content="http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:site_name" content="房鹏程的博客">
+<meta property="og:description" content="基本概念   程序 - 数据结构 + 算法，主要指存放在硬盘上的可执行文件。   进程 - 主要指运行在内存中的程序。    目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限。   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-04T01:19:32.000Z">
+<meta property="article:modified_time" content="2020-08-04T02:59:33.944Z">
+<meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">My blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a target="_blank" href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a target="_blank" href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        My blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        满招损 谦受益
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="主页" target="_blank" href="//">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/15538373365">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5139165230">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="bilibili" target="_blank" href="//space.bilibili.com/4427375">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Java的线程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Java的线程
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-08-04
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>   程序 - 数据结构 + 算法，主要指存放在硬盘上的可执行文件。<br>   进程 - 主要指运行在内存中的程序。</p>
+<p>   目前主流的操作系统都支持多进程，是为了让操作系统可以同时执行多个任务，但进程是重量级的，新建进程对系统资源的消耗比较大，因此进程的数量比较局限。<br>   线程是进程内部的程序流，也就是说操作系统支持多进程，而每个进程的内部又支持多线程，并且线程是轻量级的，会共享所在进程的资源，因此以后主流的开发都采用多线程技术。<br>   多线程技术是采用时间片轮转法来保证并发执行的效果，所谓并发就是指宏观并行微观串行的机制。</p>
+<h2 id="线程的创建-重中之重"><a href="#线程的创建-重中之重" class="headerlink" title="线程的创建(重中之重)"></a>线程的创建(重中之重)</h2><h4 id="创建的方式"><a href="#创建的方式" class="headerlink" title="创建的方式"></a>创建的方式</h4><p>   java.lang.Thread类用于描述线程，Java虚拟机允许运行多个执行线程，而线程的创建和启动方式如下：<br>   a.自定义类继承Thread类并重写run()方法，创建该类的对象调用start()方法。<br>   b.自定义类实现Runnable接口并重写run()方法，创建该类的对象作为实参来构造<br>     Thread类的对象，然后使用Thread类对象调用start()方法。 </p>
+<h4 id="相关的方法"><a href="#相关的方法" class="headerlink" title="相关的方法"></a>相关的方法</h4><p>   Thread() - 使用无参形式构造对象。<br>   Thread(String name) - 根据参数指定的名称来构造对象。<br>   Thread(Runnable target) - 根据参数指定的引用来构造对象。<br>   Thread(Runnable target, String name) - 根据参数指定引用和名称来构造对象。<br>   void run() - 若使用Runnable接口构造对象后调用该方法，则最终调用Runnable引用<br>        指向实现类中的run()方法，否则调用该方法则表示啥也不干。<br>   void start() - 用于启动线程，Java虚拟机会自动调用该线程的run()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;1.声明Thread类型的引用指向Thread类型的对象  </span><br><span class="line">    Thread t1 &#x3D; new Thread();</span><br><span class="line">    &#x2F;&#x2F;2.调用run()方法  由源码分析可知：run()方法确实啥也不干</span><br><span class="line">    t1.run();</span><br><span class="line">    System.out.println(&quot;让我们来看看run()方法到底做了什么呢？&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;run()调用和start()方法调用的区别</span><br><span class="line">public class TestSubThreadStart extends Thread &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void run()&#123;</span><br><span class="line">		for(int i &#x3D; 0; i &lt; 50; i++)&#123;</span><br><span class="line">			System.out.println(&quot;run方法中：i &#x3D; &quot; + i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">		&#x2F;&#x2F;1.声明Thread类型的引用指向子类的对象</span><br><span class="line">		Thread t1 &#x3D; new TestSubThreadStart();</span><br><span class="line">		&#x2F;&#x2F;2.调用start()方法</span><br><span class="line">		t1.start();   &#x2F;&#x2F;run方法和main方法的打印通常会有交错</span><br><span class="line">&#x2F;&#x2F;		t1.run();   &#x2F;&#x2F;普通方法的调用，直到run方法的打印结束之后再打印main方法</span><br><span class="line">		for(int i &#x3D; 0; i &lt; 50; i++)&#123;</span><br><span class="line">			System.out.println(&quot;-------------main方法中：i &#x3D; &quot; + i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h4><p>   a.执行main()方法的线程叫做主线程，执行run()方法的线程叫做子/新线程。<br>   b.对于start()方法调用代码以及之前的代码来说，由主线程执行一次，当start()方法<br>     调用结束后，则线程的个数瞬间由1个变成了2个，其中新启动的线程去执行run()方法，<br>     原来的主线程继续向下执行，两个线程各自独立运行。<br>   c.当run()方法结束后则子线程结束，当main()方法结束后则主线程结束，两个线程的<br>     执行先后次序没有明确的规定，由系统调度算法来决定。</p>
+<p>注意：<br>   继承方式创建和启动线程的代码相对简单，但Java语言中只支持单继承，若该类继承Thread类后则无法继承其它类，而实现接口的方式虽然代码复杂，但不影响该类继承其它类以及实现其它接口，因此以后的开发中推荐使用实现接口的方式。</p>
+<h2 id="线程的编号和名称-会用即可"><a href="#线程的编号和名称-会用即可" class="headerlink" title="线程的编号和名称(会用即可)"></a>线程的编号和名称(会用即可)</h2><p>   long getId() - 用于获取线程的标识符/编号。<br>   String getName() - 用于获取线程的名称。<br>   void setName(String name) - 用于更改线程的名称。<br>   static Thread currentThread() - 用于获取当前正在执行线程的引用并返回。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class TestThreadIdName extends Thread&#123;</span><br><span class="line"></span><br><span class="line">	public TestThreadIdName(String string) &#123;</span><br><span class="line">		super(string); &#x2F;&#x2F;调用父类的有参构造方法</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void run()&#123;</span><br><span class="line">		System.out.println(&quot;当前线程的编号是：&quot; + getId()   &#x2F;&#x2F;10</span><br><span class="line">			+ &quot;, 名称是：&quot; + getName());    &#x2F;&#x2F;Thread-0 zhangfei</span><br><span class="line">		&#x2F;&#x2F;修改线程的名称</span><br><span class="line">		setName(&quot;guanyu&quot;);</span><br><span class="line">		System.out.println(&quot;修改后的编号是：&quot; + getId()   &#x2F;&#x2F;10</span><br><span class="line">		+ &quot;, 名称是：&quot; + getName());    &#x2F;&#x2F;guanyu</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		TestThreadIdName ttin &#x3D; new TestThreadIdName(&quot;zhangfei&quot;);</span><br><span class="line">		ttin.start();</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;执行下面代码的线程一定是主线程，当前正在执行的线程就是主线程</span><br><span class="line">		Thread t1 &#x3D; Thread.currentThread();</span><br><span class="line">		System.out.println(&quot;主线程的编号是：&quot; + t1.getId());</span><br><span class="line">		System.out.println(&quot;主线程的名称是：&quot; + t1.getName());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程的主要状态-了解、笔试题"><a href="#线程的主要状态-了解、笔试题" class="headerlink" title="线程的主要状态(了解、笔试题)"></a>线程的主要状态(了解、笔试题)</h2><p>   新建状态 - 当线程对象使用new关键字创建完毕后进入的状态。<br>            - 此时线程还没有开始执行。<br>   就绪状态 - 当线程对象调用start()方法后进入的状态。<br>            - 此时线程依然没有开始执行。<br>   运行状态 - 当线程调度器调度就绪线程后进入的状态。<br>            - 此时线程开始执行。<br>            - 当时间片执行完毕后线程的任务没有完成时回到就绪状态。<br>   消亡状态 - 当时间执行完毕后线程的任务已经完成时进入的状态。<br>            - 此时线程已经终止。<br>   阻塞状态 - 当线程执行的过程中发生了阻塞事件后进入的状态，如：sleep()方法。<br>            - 当阻塞状态解除后回到就绪状态。</p>
+<h2 id="线程的常用方法-重点"><a href="#线程的常用方法-重点" class="headerlink" title="线程的常用方法(重点)"></a>线程的常用方法(重点)</h2><p>   static void sleep(long millis) - 用于使得调用线程休眠参数指定的毫秒数。<br>   int getPriority() - 用于获取线程的优先级。<br>   void setPriority(int newPriority) - 用于设置线程的优先级。<br>      - 优先级高的线程不一定先执行，但是该线程获得CPU时间片的机会更多一些。<br>   void join() - 用于等待调用线程终止。<br>   void join(long millis) - 用于等待线程的最长时间为参数指定的毫秒数。<br>   boolean isDaemon() - 用于判断该线程是否为守护线程。<br>   void setDaemon(boolean on) - 用于设置该线程为守护线程。<br>       - 该方法必须在启动线程前调用。<br>       - 当所有非守护线程结束后，则守护线程会随之结束，此时Java虚拟机退出</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年08月04日 10:59</p>
+        <p>原始链接： <a class="post-url" href="/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/" title="Java的线程">http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/&title=《Java的线程》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/&title=《Java的线程》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的线程》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/08/04/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程的创建-重中之重"><span class="post-toc-text">线程的创建(重中之重)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建的方式"><span class="post-toc-text">创建的方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相关的方法"><span class="post-toc-text">相关的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原理分析"><span class="post-toc-text">原理分析</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程的编号和名称-会用即可"><span class="post-toc-text">线程的编号和名称(会用即可)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程的主要状态-了解、笔试题"><span class="post-toc-text">线程的主要状态(了解、笔试题)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程的常用方法-重点"><span class="post-toc-text">线程的常用方法(重点)</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/30/Java%E7%9A%84IO%E6%B5%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java的IO流</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 房鹏程<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://fangpengcheng.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/JDBC/">JDBC</a><a class="category-link" href="/categories/List/">List</a><a class="category-link" href="/categories/Map/">Map</a><a class="category-link" href="/categories/Maven/">Maven</a><a class="category-link" href="/categories/Maven/Java/">Java</a><a class="category-link" href="/categories/OA/">OA</a><a class="category-link" href="/categories/frame%E5%92%8Ciframe/">frame和iframe</a><a class="category-link" href="/categories/ifream/">ifream</a><a class="category-link" href="/categories/json/">json</a><a class="category-link" href="/categories/log4j/">log4j</a><a class="category-link" href="/categories/request/">request</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0/">上传</a><a class="category-link" href="/categories/%E4%B8%8A%E4%BC%A0%E3%80%81%E5%88%A0%E9%99%A4/">上传、删除</a><a class="category-link" href="/categories/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a><a class="category-link" href="/categories/%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E6%B1%89%E5%8C%96/">下载、安装、汉化</a><a class="category-link" href="/categories/%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8/">九九乘法表</a><a class="category-link" href="/categories/%E5%88%B7%E6%96%B0/">刷新</a><a class="category-link" href="/categories/%E5%8D%B8%E8%BD%BD/">卸载</a><a class="category-link" href="/categories/%E5%AE%89%E8%A3%85/">安装</a><a class="category-link" href="/categories/%E5%BE%AA%E7%8E%AF/">循环</a><a class="category-link" href="/categories/%E6%8E%92%E5%BA%8F/">排序</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5/">数据库连接</a><a class="category-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a><a class="category-link" href="/categories/%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE/">标签设置</a><a class="category-link" href="/categories/%E6%B1%89%E5%8C%96/">汉化</a><a class="category-link" href="/categories/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/">清理缓存</a><a class="category-link" href="/categories/%E8%8A%82%E7%82%B9%E4%BA%8B%E4%BB%B6/">节点事件</a><a class="category-link" href="/categories/%E8%A1%A8%E5%8D%95/">表单</a><a class="category-link" href="/categories/%E9%80%92%E5%BD%92/">递归</a><a class="category-link" href="/categories/%E9%87%8D%E8%BD%BD/">重载</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 14.44px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 16.67px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.33px;">Mysql</a> <a href="/tags/OA/" style="font-size: 17.78px;">OA</a> <a href="/tags/Oracle/" style="font-size: 15.56px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 15.56px;">SQL</a> <a href="/tags/SVN/" style="font-size: 14.44px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.11px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.11px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Eclipse/" style="font-size: 14.44px;">Eclipse</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 16.67px;">Html</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.89px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/Maven/" style="font-size: 12.22px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 13.33px;">Mysql</a> <a href="/tags/OA/" style="font-size: 17.78px;">OA</a> <a href="/tags/Oracle/" style="font-size: 15.56px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 15.56px;">SQL</a> <a href="/tags/SVN/" style="font-size: 14.44px;">SVN</a> <a href="/tags/Tomcat/" style="font-size: 11.11px;">Tomcat</a> <a href="/tags/Vmware/" style="font-size: 11.11px;">Vmware</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 10px;">日志</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">正则表达式</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+<!-- 爱心特效 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clicksocialvalue.js"></script>
+<!-- 雪花特效 -->
+<script type="text/javascript" src="/js/snow.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+</body>
+</html>
