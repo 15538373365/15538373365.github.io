@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 房鹏程的博客</title>
+  <title>Java的常用设计原则 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/archives/page/2/index.html">
+  <meta name="description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性123456789public class Person&amp;#123;    private String name;    private int age;        ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的常用设计原则">
+<meta property="og:url" content="http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性123456789public class Person&amp;#123;    private String name;    private int age;        ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gend">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-27T07:35:13.000Z">
+<meta property="article:modified_time" content="2020-08-27T07:43:02.077Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,163 +118,140 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-Java的常用设计原则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/28/OA%E7%9A%84%E5%AE%9E%E7%94%A8sql%E8%AF%AD%E5%8F%A5/" class="archive-article-date">
-  <time datetime="2020-07-28T06:00:01.000Z" itemprop="datePublished">07-28</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/OA%E7%9A%84%E5%AE%9E%E7%94%A8sql%E8%AF%AD%E5%8F%A5/"  >OA的实用sql语句</a>
+    <h1 class="post-title" itemprop="name">
+      Java的常用设计原则
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-08-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/OA/" class="color3">OA</a>
-      
-  </li>
+            <h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2><ul>
+<li>对扩展开放，对修改关闭</li>
+<li>实现热插拔的效果，从而提高软件的可维护性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    </span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br><span class="line">public class SubPerson extends Person&#123;</span><br><span class="line">    private boolean gender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        </div>
-      
-  </div>
-</article>
+</li>
+</ul>
+<h2 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h2><ul>
+<li><p>任何父类可以出现的地方，子类一定可以出现</p>
+</li>
+<li><p>尽量多使用继承和多态的方式编程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public static void draw(Shape s)&#123;</span><br><span class="line">    s.show();</span><br><span class="line">&#125;</span><br><span class="line">draw(new Rect(1, 2, 3, 4));</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">## 依赖倒转原则</span><br><span class="line">- 尽量依赖于抽象类和接口，而不是具体实现类</span><br><span class="line">- 抽象类对子类具有强制性和规范性</span><br></pre></td></tr></table></figure>
+<p>public abstract class Account{<br>  public abstract double getLixi();<br>}<br>public class FixedAccount extends Account{<br>  @Override<br>  public double getLixi(){<br>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 接口隔离原则</span><br><span class="line">- 尽量依赖于多个小接口而不是一个大接口。</span><br></pre></td></tr></table></figure>
+<p> public interface FlyAnimal{</p>
+<pre><code>public abstract void fly();</code></pre><p> }<br> public interface RunAnimal{</p>
+<pre><code>public abstract void run();</code></pre><p> }<br> public class Dog implements RunAnimal{</p>
+<p> }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 迪米特法则(最少知道原则)</span><br></pre></td></tr></table></figure></li>
+<li><p>一个实体应当尽量少与其它实体之间发生相互作用。</p>
+</li>
+<li><p>高内聚低耦合</p>
+</li>
+<li><p>所谓高内聚就是指一个实体应该将该实体拥有的所有功能内聚于该实体的内部。</p>
+</li>
+<li><p>所谓低耦合就是指一个实体应该尽量减少与其它实体的关联度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 合成复用原则</span><br><span class="line">- 应该尽量使用合成复用的方式而不是继承.</span><br></pre></td></tr></table></figure>
+<p>public class A{<br>  public void show(){ … }<br>  …<br>}<br>public class B{<br>  private A a;<br>  public B(A a){</p>
+<pre><code>this.a = a;</code></pre><p>  }</p>
+<p>  public void test(){</p>
+<pre><code>a.show(); </code></pre><p>  }<br>}<br>```</p>
+</li>
+</ul>
 
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/" class="archive-article-date">
-  <time datetime="2020-07-28T01:56:50.000Z" itemprop="datePublished">07-28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/Java%E7%9A%84TreeSet%E9%9B%86%E5%90%88/"  >Java的TreeSet集合</a>
-    </h1>
-  
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年08月27日 15:43</p>
+        <p>原始链接： <a class="post-url" href="/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="Java的常用设计原则">http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
 
-    </header>
       
-        <div class="archive-post-footer">
+        
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
 
-        </div>
-      
-  </div>
-</article>
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/&title=《Java的常用设计原则》 — 房鹏程的博客&pic=images/java.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/&title=《Java的常用设计原则》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java的常用设计原则》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" alt="微信分享二维码">
+</div>
 
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/" class="archive-article-date">
-  <time datetime="2020-07-27T08:45:21.000Z" itemprop="datePublished">07-27</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/java%E7%9A%84HashSet%E9%9B%86%E5%90%88/"  >java的HashSet集合</a>
-    </h1>
-  
+<div class="mask"></div>
 
-    </header>
-      
-        <div class="archive-post-footer">
+        
+        <ul class="article-footer-menu">
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  <time datetime="2020-07-23T09:53:29.000Z" itemprop="datePublished">07-23</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/Java%E7%9A%84Set%E6%8E%A5%E5%8F%A3/"  >Java的Set接口</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/" class="archive-article-date">
-  <time datetime="2020-07-23T04:02:18.000Z" itemprop="datePublished">07-23</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/Java%E7%9A%84Queue%E6%8E%A5%E5%8F%A3/"  >Java的Queue接口</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
@@ -280,116 +260,33 @@
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开闭原则"><span class="post-toc-text">开闭原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#里氏代换原则"><span class="post-toc-text">里氏代换原则</span></a></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/27/JavaBean/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JavaBean</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/" class="archive-article-date">
-  <time datetime="2020-07-22T09:51:16.000Z" itemprop="datePublished">07-22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/22/Java%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B/"  >Java中的泛型</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/22/Java%E7%9A%84List%E9%9B%86%E5%90%88/" class="archive-article-date">
-  <time datetime="2020-07-22T02:31:04.000Z" itemprop="datePublished">07-22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/22/Java%E7%9A%84List%E9%9B%86%E5%90%88/"  >Java的List集合</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/21/OA%E8%B6%85%E7%BA%A7%E8%8A%82%E7%82%B9/" class="archive-article-date">
-  <time datetime="2020-07-21T09:32:59.000Z" itemprop="datePublished">07-21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/21/OA%E8%B6%85%E7%BA%A7%E8%8A%82%E7%82%B9/"  >OA超级节点</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/OA/" class="color3">OA</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/">&lt;&lt; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/17/">17</a><a class="extend next" rel="next" href="/archives/page/3/">Next &gt;&gt;</a>
-  </nav>
 </section>
         
       </div>
