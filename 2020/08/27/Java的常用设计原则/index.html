@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性12345678public class Person&amp;#123;    private String name;    private int age;    ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gender;&amp;#">
+  <meta name="description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性  12345678public class Person&amp;#123;    private String name;    private int age;    ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gender;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java的常用设计原则">
 <meta property="og:url" content="http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性12345678public class Person&amp;#123;    private String name;    private int age;    ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gender;&amp;#">
+<meta property="og:description" content="开闭原则 对扩展开放，对修改关闭 实现热插拔的效果，从而提高软件的可维护性  12345678public class Person&amp;#123;    private String name;    private int age;    ... &amp;#125;public class SubPerson extends Person&amp;#123;    private boolean gender;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-27T07:35:13.000Z">
-<meta property="article:modified_time" content="2020-08-27T08:32:32.503Z">
+<meta property="article:modified_time" content="2020-08-27T08:41:20.138Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -149,28 +149,40 @@
             
             <h2 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h2><ul>
 <li>对扩展开放，对修改关闭</li>
-<li>实现热插拔的效果，从而提高软件的可维护性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br><span class="line">public class SubPerson extends Person&#123;</span><br><span class="line">    private boolean gender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>实现热插拔的效果，从而提高软件的可维护性</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Person&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br><span class="line">public class SubPerson extends Person&#123;</span><br><span class="line">    private boolean gender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h2><ul>
 <li>任何父类可以出现的地方，子类一定可以出现</li>
 <li>尽量多使用继承和多态的方式编程</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void draw(Shape s)&#123;</span><br><span class="line">    s.show();</span><br><span class="line">&#125;</span><br><span class="line">draw(new Rect(1, 2, 3, 4));</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">## 依赖倒转原则</span><br><span class="line">- 尽量依赖于抽象类和接口，而不是具体实现类</span><br><span class="line">- 抽象类对子类具有强制性和规范性</span><br></pre></td></tr></table></figure>
-<p>public abstract class Account{<br>    public abstract double getLixi();<br>}<br>public class FixedAccount extends Account{<br>    @Override<br>    public double getLixi(){<br>    }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 接口隔离原则</span><br><span class="line">- 尽量依赖于多个小接口而不是一个大接口。</span><br></pre></td></tr></table></figure>
-<p>   public interface FlyAnimal{<br>       public abstract void fly();<br>   }<br>   public interface RunAnimal{<br>       public abstract void run();<br>   }<br>   public class Dog implements RunAnimal{</p>
-<p>   }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 迪米特法则(最少知道原则)</span><br><span class="line"></span><br><span class="line">- 一个实体应当尽量少与其它实体之间发生相互作用。</span><br><span class="line">- 高内聚低耦合</span><br><span class="line">- 所谓高内聚就是指一个实体应该将该实体拥有的所有功能内聚于该实体的内部。</span><br><span class="line">- 所谓低耦合就是指一个实体应该尽量减少与其它实体的关联度。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 合成复用原则</span><br><span class="line">- 应该尽量使用合成复用的方式而不是继承.</span><br></pre></td></tr></table></figure>
-<p>public class A{<br>    public void show(){ … }<br>    …<br>}<br>public class B{<br>    private A a;<br>    public B(A a){<br>        this.a = a;<br>    }</p>
-<pre><code>public void test(){
-    a.show(); 
-}</code></pre><p>}<br>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static void draw(Shape s)&#123;</span><br><span class="line">    s.show();</span><br><span class="line">&#125;</span><br><span class="line">draw(new Rect(1, 2, 3, 4));</span><br></pre></td></tr></table></figure>
 
+<h2 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h2><ul>
+<li>尽量依赖于抽象类和接口，而不是具体实现类</li>
+<li>抽象类对子类具有强制性和规范性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Account&#123;</span><br><span class="line">    public abstract double getLixi();</span><br><span class="line">&#125; </span><br><span class="line">public class FixedAccount extends Account&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public double getLixi()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><ul>
+<li>尽量依赖于多个小接口而不是一个大接口。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public interface FlyAnimal&#123;</span><br><span class="line">    public abstract void fly();</span><br><span class="line">&#125;</span><br><span class="line">public interface RunAnimal&#123;</span><br><span class="line">    public abstract void run();</span><br><span class="line">&#125;</span><br><span class="line">public class Dog implements RunAnimal&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="迪米特法则-最少知道原则"><a href="#迪米特法则-最少知道原则" class="headerlink" title="迪米特法则(最少知道原则)"></a>迪米特法则(最少知道原则)</h2><ul>
+<li>一个实体应当尽量少与其它实体之间发生相互作用。</li>
+<li>高内聚低耦合</li>
+<li>所谓高内聚就是指一个实体应该将该实体拥有的所有功能内聚于该实体的内部。</li>
+<li>所谓低耦合就是指一个实体应该尽量减少与其它实体的关联度。</li>
+</ul>
+<h2 id="合成复用原则"><a href="#合成复用原则" class="headerlink" title="合成复用原则"></a>合成复用原则</h2><ul>
+<li>应该尽量使用合成复用的方式而不是继承.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class A&#123;</span><br><span class="line">    public void show()&#123; ... &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">public class B&#123;</span><br><span class="line">    private A a;</span><br><span class="line">    public B(A a)&#123;</span><br><span class="line">        this.a &#x3D; a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void test()&#123;</span><br><span class="line">        a.show(); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年08月27日 16:32</p>
+        <p>最后更新： 2020年08月27日 16:41</p>
         <p>原始链接： <a class="post-url" href="/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" title="Java的常用设计原则">http://fangpengcheng.com/2020/08/27/Java%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -257,7 +269,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开闭原则"><span class="post-toc-text">开闭原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#里氏代换原则"><span class="post-toc-text">里氏代换原则</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开闭原则"><span class="post-toc-text">开闭原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#里氏代换原则"><span class="post-toc-text">里氏代换原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#依赖倒转原则"><span class="post-toc-text">依赖倒转原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#接口隔离原则"><span class="post-toc-text">接口隔离原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#迪米特法则-最少知道原则"><span class="post-toc-text">迪米特法则(最少知道原则)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#合成复用原则"><span class="post-toc-text">合成复用原则</span></a></li></ol>
         </nav>
     </aside>
     
