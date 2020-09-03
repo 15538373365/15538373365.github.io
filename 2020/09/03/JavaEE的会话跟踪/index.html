@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Maven | 房鹏程的博客</title>
+  <title>JavaEE的会话跟踪 | 房鹏程的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="房鹏程的博客">
-<meta property="og:url" content="http://fangpengcheng.com/tags/Maven/index.html">
+  <meta name="description" content="会话跟踪HTTP协议是无状态无连接的, 我们客户端与服务器的每一次交流, 对于服务器来说都是没有记忆的!会话就是多次的请求与响应！关于状态管理, 提供了两种方式 !  将存储的状态, 管理在客户端: Cookie 将存储的状态, 管理在服务端: Session  Cookie服务器在向客户端响应时 , 使用Cookie消息头的方式 , 将存储的状态响应给浏览器浏览器接收到Cookie 后 , 会将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE的会话跟踪">
+<meta property="og:url" content="http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="会话跟踪HTTP协议是无状态无连接的, 我们客户端与服务器的每一次交流, 对于服务器来说都是没有记忆的!会话就是多次的请求与响应！关于状态管理, 提供了两种方式 !  将存储的状态, 管理在客户端: Cookie 将存储的状态, 管理在服务端: Session  Cookie服务器在向客户端响应时 , 使用Cookie消息头的方式 , 将存储的状态响应给浏览器浏览器接收到Cookie 后 , 会将">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-03T08:47:22.000Z">
+<meta property="article:modified_time" content="2020-09-03T08:58:15.712Z">
 <meta property="article:author" content="房鹏程">
+<meta property="article:tag" content="JavaEE">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,117 +118,154 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-JavaEE的会话跟踪" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/22/Maven%E4%B8%AD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAservlet%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%ACjsp/" class="archive-article-date">
-  <time datetime="2019-12-22T10:03:44.000Z" itemprop="datePublished">12-22</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/22/Maven%E4%B8%AD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAservlet%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%ACjsp/"  >Maven中新建一个servlet并实现跳转jsp</a>
+    <h1 class="post-title" itemprop="name">
+      JavaEE的会话跟踪
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-09-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <h3 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h3><p>HTTP协议是<b>无状态无连接的</b>, 我们客户端与服务器的每一次交流, 对于服务器来说都是没有记忆的!<br>会话就是多次的请求与响应！<br>关于状态管理, 提供了两种方式 !</p>
+<ol>
+<li>将存储的状态, 管理在客户端: Cookie</li>
+<li>将存储的状态, 管理在服务端: Session</li>
+</ol>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>服务器在向客户端响应时 , 使用Cookie消息头的方式 , 将存储的状态响应给浏览器<br>浏览器接收到Cookie 后 , 会将所有的Cookie存储在一个文本文件(.txt)里 , 当浏览器再次向同一个服务器发起请求时 ,浏览器会自动将这些Cookie以消息头的形式,发送给服务器</p>
+<h5 id="创建Cookie"><a href="#创建Cookie" class="headerlink" title="创建Cookie"></a>创建Cookie</h5><p>过创建对象的方式, 得到一个Cookie , 并指定Cookie的键与值<br>Cookie cookie = new Cookie(String key,String value);</p>
+<h5 id="Cookie设置响应头"><a href="#Cookie设置响应头" class="headerlink" title="Cookie设置响应头"></a>Cookie设置响应头</h5><p>一次响应可以添加多个Cookie!<br>response.addCookie(Cookie cookie);</p>
+<h5 id="请求头中获取Cookie"><a href="#请求头中获取Cookie" class="headerlink" title="请求头中获取Cookie"></a>请求头中获取Cookie</h5><p>因为存储的cookie可能是多个 ,所以得到的是一个数组<br>Cookie[] cookies = request.getCookies();</p>
+<p>获取键的格式:<br>    String name = cookie.getName();<br>获取值的格式:<br>    String value = cookie.getValue();</p>
+<p>&lt;colour=”red”&gt;注意:<br>    如果未存储Cookie , 得到的是null!</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年09月03日 16:58</p>
+        <p>原始链接： <a class="post-url" href="/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="JavaEE的会话跟踪">http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/</a></p>
+        <footer>
+            <a href="http://fangpengcheng.com">
+                <img src="/images/logo.png" alt="房鹏程">
+                房鹏程
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/&title=《JavaEE的会话跟踪》 — 房鹏程的博客&pic=images/javaee.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/&title=《JavaEE的会话跟踪》 — 房鹏程的博客&source=记录美好生活" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaEE的会话跟踪》 — 房鹏程的博客&url=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/&via=http://fangpengcheng.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Maven/" class="color1">Maven</a>
+    <a href="/tags/JavaEE/" class="color2">JavaEE</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话跟踪"><span class="post-toc-text">会话跟踪</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-text">Cookie</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建Cookie"><span class="post-toc-text">创建Cookie</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie设置响应头"><span class="post-toc-text">Cookie设置响应头</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求头中获取Cookie"><span class="post-toc-text">请求头中获取Cookie</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Session"><span class="post-toc-text">Session</span></a></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/03/JavaEE%E4%B8%ADHttpServletRequest%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JavaEE中HttpServletRequest的常用方法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/19/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAmaven%E4%BB%93%E5%BA%93/" class="archive-article-date">
-  <time datetime="2019-12-19T12:59:16.000Z" itemprop="datePublished">12-19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/19/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BAmaven%E4%BB%93%E5%BA%93/"  >本地搭建maven仓库</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Maven/" class="color1">Maven</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/29/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84maven%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  <time datetime="2019-10-29T10:27:31.000Z" itemprop="datePublished">10-29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/29/%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84maven%E9%A1%B9%E7%9B%AE/"  >新建一个简单的maven项目</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Maven/" class="color1">Maven</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
 </section>
         
       </div>
