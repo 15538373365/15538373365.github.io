@@ -16,7 +16,7 @@
 <meta property="og:description" content="会话跟踪HTTP协议是无状态无连接的, 我们客户端与服务器的每一次交流, 对于服务器来说都是没有记忆的!会话就是多次的请求与响应！关于状态管理, 提供了两种方式 !  将存储的状态, 管理在客户端: Cookie 将存储的状态, 管理在服务端: Session  Cookie服务器在向客户端响应时 , 使用Cookie消息头的方式 , 将存储的状态响应给浏览器浏览器接收到Cookie 后 , 会将">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-03T08:47:22.000Z">
-<meta property="article:modified_time" content="2020-09-03T09:03:54.863Z">
+<meta property="article:modified_time" content="2020-09-03T09:28:02.084Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="JavaEE">
 <meta name="twitter:card" content="summary">
@@ -158,10 +158,36 @@
 <h5 id="请求头中获取Cookie"><a href="#请求头中获取Cookie" class="headerlink" title="请求头中获取Cookie"></a>请求头中获取Cookie</h5><p>因为存储的cookie可能是多个 ,所以得到的是一个数组<br>Cookie[] cookies = request.getCookies();</p>
 <p>获取键的格式:<br>    String name = cookie.getName();<br>获取值的格式:<br>    String value = cookie.getValue();</p>
 <p><font color="red">注意:<br>    如果未存储Cookie , 得到的是null!</font></p>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3>
+<h5 id="调整Cookie的存活时长"><a href="#调整Cookie的存活时长" class="headerlink" title="调整Cookie的存活时长"></a>调整Cookie的存活时长</h5><p>cookie.setMaxAge(int 秒);//能存储的最大值为:  int类型的最大值 !</p>
+<ul>
+<li>传入正数    :   表示倒计时的秒数</li>
+<li>传入0 :   表示立即删除此Cookie</li>
+<li>传入负数    :   默认为-1 , 负数表示会话结束时自动删除!</li>
+</ul>
+<h5 id="Cookie存储的路径"><a href="#Cookie存储的路径" class="headerlink" title="Cookie存储的路径"></a>Cookie存储的路径</h5><ul>
+<li><p>Cookie存在 替换 与 获取操作:  </p>
+<p>Cookie的替换 只能由相同路径来完成 !<br>Cookie的读取 只能由相同路径 或 子路经 可以读取!<br>强调: 子路经设置的Cookie , 父路径是无法读取到的!</p>
+</li>
+</ul>
+<p>设计三个不同的Servlet: </p>
+<p>请求地址分别为:</p>
+<p>AServlet    :   /x/a<br>BServlet    :   /x/b<br>CServlet    :   /c</p>
+<p>案例结果:<br>    A存储:<br>        B   :   可读 , 可替换<br>        C   :   不可读 不可替换<br>    C存储:<br>        AB  :   可读, 不可替换 !</p>
+<p><font color="red">注意：<br>建议在项目开发时, 将所有的Cookie路径 设置为 “/“  </font></p>
+<p>格式:<br>    cookie.setPath(“/“);</p>
+<h5 id="Cookie的优缺点"><a href="#Cookie的优缺点" class="headerlink" title="Cookie的优缺点"></a>Cookie的优缺点</h5><ol>
+<li>Cookie技术存储的数据类型有限制,  不可存储中文</li>
+<li>数据存储在浏览器中 , 不安全, 不建议存储敏感数据</li>
+<li>保存的数据大小 最大4KB</li>
+<li>依赖于用户浏览器的Cookie设置, 用户可以勾选禁止Cookie</li>
+</ol>
+<p>优点:<br>    数据存储在浏览器中,  分散了服务器的压力 !</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>基于Cookie实现的 ! Session是一个键值对的容器 !</p>
+<p>原理:<br>    浏览器<font color="red">访问服务器</font>时, 服务器可以创建一个Session对象  (session是一个键值对的容器) !<br>    每一个Session在创建时 , 会产生一个JSESSIONID , sessionid的值是唯一的 !<br>    服务器在响应数据时, 会将Session的id 通过Cookie的方式 传递给浏览器 , 浏览器会存储到Cookie中 !<br>    当浏览器再次访问此服务器时, 会将SessionID发送给服务器 , 服务器会自动寻找匹配的Session对象 , 当程序员使用Session的相关操作时, 操作的对象就是针对于这个SESSIONID的对象 !</p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年09月03日 17:03</p>
+        <p>最后更新： 2020年09月03日 17:28</p>
         <p>原始链接： <a class="post-url" href="/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="JavaEE的会话跟踪">http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -248,7 +274,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话跟踪"><span class="post-toc-text">会话跟踪</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-text">Cookie</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建Cookie"><span class="post-toc-text">创建Cookie</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie设置响应头"><span class="post-toc-text">Cookie设置响应头</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求头中获取Cookie"><span class="post-toc-text">请求头中获取Cookie</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Session"><span class="post-toc-text">Session</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话跟踪"><span class="post-toc-text">会话跟踪</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-text">Cookie</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建Cookie"><span class="post-toc-text">创建Cookie</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie设置响应头"><span class="post-toc-text">Cookie设置响应头</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求头中获取Cookie"><span class="post-toc-text">请求头中获取Cookie</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#调整Cookie的存活时长"><span class="post-toc-text">调整Cookie的存活时长</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie存储的路径"><span class="post-toc-text">Cookie存储的路径</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie的优缺点"><span class="post-toc-text">Cookie的优缺点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Session"><span class="post-toc-text">Session</span></a></li></ol>
         </nav>
     </aside>
     
