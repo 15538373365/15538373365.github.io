@@ -16,7 +16,7 @@
 <meta property="og:description" content="会话跟踪HTTP协议是无状态无连接的, 我们客户端与服务器的每一次交流, 对于服务器来说都是没有记忆的!会话就是多次的请求与响应！关于状态管理, 提供了两种方式 !  将存储的状态, 管理在客户端: Cookie 将存储的状态, 管理在服务端: Session  Cookie服务器在向客户端响应时 , 使用Cookie消息头的方式 , 将存储的状态响应给浏览器浏览器接收到Cookie 后 , 会将">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-03T08:47:22.000Z">
-<meta property="article:modified_time" content="2020-09-03T08:58:15.712Z">
+<meta property="article:modified_time" content="2020-09-03T09:00:53.056Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="JavaEE">
 <meta name="twitter:card" content="summary">
@@ -157,11 +157,11 @@
 <h5 id="Cookie设置响应头"><a href="#Cookie设置响应头" class="headerlink" title="Cookie设置响应头"></a>Cookie设置响应头</h5><p>一次响应可以添加多个Cookie!<br>response.addCookie(Cookie cookie);</p>
 <h5 id="请求头中获取Cookie"><a href="#请求头中获取Cookie" class="headerlink" title="请求头中获取Cookie"></a>请求头中获取Cookie</h5><p>因为存储的cookie可能是多个 ,所以得到的是一个数组<br>Cookie[] cookies = request.getCookies();</p>
 <p>获取键的格式:<br>    String name = cookie.getName();<br>获取值的格式:<br>    String value = cookie.getValue();</p>
-<p>&lt;colour=”red”&gt;注意:<br>    如果未存储Cookie , 得到的是null!</p>
+<p>&lt;color=”red”&gt;注意:<br>    如果未存储Cookie , 得到的是null!</p>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年09月03日 16:58</p>
+        <p>最后更新： 2020年09月03日 17:00</p>
         <p>原始链接： <a class="post-url" href="/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="JavaEE的会话跟踪">http://fangpengcheng.com/2020/09/03/JavaEE%E7%9A%84%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
