@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Welcome to my blog" />
   
-  <meta name="description" content="记录美好生活">
+  <meta name="description" content="out  JspWriter             向jsp对应位置输出内容 12println    writePrintWriter   不管出现在哪里 都是从头开始写内容   request  HttpServletRequest    封装Http请求信息的对象  1234567891011121314151617181920getParameter(&quot;name&quot;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaEE的9大内置对象">
 <meta property="og:url" content="http://fangpengcheng.com/2020/09/11/JavaEE%E7%9A%849%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="房鹏程的博客">
-<meta property="og:description" content="记录美好生活">
+<meta property="og:description" content="out  JspWriter             向jsp对应位置输出内容 12println    writePrintWriter   不管出现在哪里 都是从头开始写内容   request  HttpServletRequest    封装Http请求信息的对象  1234567891011121314151617181920getParameter(&quot;name&quot;)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-11T02:44:27.000Z">
-<meta property="article:modified_time" content="2020-09-11T02:46:31.156Z">
+<meta property="article:modified_time" content="2020-09-11T03:02:39.833Z">
 <meta property="article:author" content="房鹏程">
 <meta property="article:tag" content="JavaEE">
 <meta name="twitter:card" content="summary">
@@ -147,10 +147,36 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            
+            <h3 id="out"><a href="#out" class="headerlink" title="out"></a>out</h3><p>  JspWriter             向jsp对应位置输出内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">println    write</span><br><span class="line">PrintWriter   不管出现在哪里 都是从头开始写内容</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><p>  HttpServletRequest    封装Http请求信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">getParameter(&quot;name&quot;)   根据name 获取对应的参数值 </span><br><span class="line">getParameterValues(&quot;name&quot;) 根据name 获取对应的参数值的数组 </span><br><span class="line">setCharacterEncoding(&quot;utf-8&quot;) 设置参数的编码 </span><br><span class="line">setAttribute(&quot;key&quot;,Object)  设置属性值 </span><br><span class="line">getAttribute(&quot;key&quot;)    根据key 获取对应的值 </span><br><span class="line">removeAttribute(&quot;key&quot;)  根据key删除对应的值 </span><br><span class="line">getRequestDispatcher(&quot;url&quot;)  获取转发器 </span><br><span class="line">getCookies()   获取请求对应Cookie 数组 </span><br><span class="line">getMethod()  获取请求方式   get  post  put  delete</span><br><span class="line">getServletContext()  获取servlet上下文对象 </span><br><span class="line">getSession()   获取session   如果session 失效则创建新的</span><br><span class="line">getSession(false) 获取session   如果session 失效则返回null</span><br><span class="line">getServletPath()   项目名后面的部分 </span><br><span class="line">getRequestURL()    问号前面的部分 </span><br><span class="line">getRequestURI()    &#x2F;项目名+ servletPath</span><br><span class="line">getQueryString()   问号后面的部分</span><br><span class="line">getRemoteAddr()    获取访问服务器的客户端地址 </span><br><span class="line">getLocalAddr()     获取服务器地址 </span><br><span class="line">getLocalPort()     获取服务器端口</span><br><span class="line">getRemotePort()    获取客户端端口</span><br></pre></td></tr></table></figure>
+
+<h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><p>  HttpServletResponse   封装Http响应信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getWriter()   获取向浏览器输出流对象 </span><br><span class="line">setContentType(&quot;text&#x2F;html;charset&#x3D;utf-8&quot;)  设置响应格式和编码</span><br><span class="line">sendRedirect(&quot;url&quot;)  实现重定向 </span><br><span class="line">sendError(状态码,&quot;错误消息&quot;)   设置错误编码</span><br><span class="line">addCookie(Cookie  cookie)   添加Cookie 对象 </span><br><span class="line">encodeRedirectURL(&quot;url&quot;)   恢复jsessionid 传输</span><br></pre></td></tr></table></figure>
+
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p>  HttpSession           封装会话信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setAttribute(&quot;key&quot;,Object)  设置属性值 </span><br><span class="line">getAttribute(&quot;key&quot;)    根据key 获取对应的值 </span><br><span class="line">removeAttribute(&quot;key&quot;)  根据key删除对应的值 </span><br><span class="line">setMaxInactiveInterval(int seconds)  设置最大不活动周期 </span><br><span class="line">invalidate()   立即失效</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="pageContext"><a href="#pageContext" class="headerlink" title="pageContext"></a>pageContext</h3><p>  PageContext           封装页面上下文信息的对象<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pageContext    页面上下文    </span><br><span class="line">setAttribute(&quot;key&quot;,Object)  设置属性值 </span><br><span class="line">getAttribute(&quot;key&quot;)    根据key 获取对应的值 </span><br><span class="line">removeAttribute(&quot;key&quot;)  根据key删除对应的值    </span><br><span class="line">getXX()   可以管理其它内置对象  进而获取其它的八个内置对象</span><br></pre></td></tr></table></figure></p>
+<h3 id="page"><a href="#page" class="headerlink" title="page"></a>page</h3><p>  Object                JSP 页面本身 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><p>  ServletContext        封装servlet上下文信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setAttribute(&quot;key&quot;,Object)  设置属性值 </span><br><span class="line">getAttribute(&quot;key&quot;)    根据key 获取对应的值 </span><br><span class="line">removeAttribute(&quot;key&quot;)  根据key删除对应的值 </span><br><span class="line">getRealPath(&quot;WebContent下的一个文件夹&quot;)   获取WebContent 真实磁盘路径 </span><br><span class="line">getInitParameter(&quot;name&quot;)  获取web.xml 全局初始化参数对应的值</span><br></pre></td></tr></table></figure>
+
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>  ServletConfig         封装servlet 配置信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getInitParameter(&quot;name&quot;)  获取针对某个具体的servlet的初始化参数    </span><br><span class="line">getServletName()   获取servlet的名字 </span><br><span class="line">getServletContext()  获取servlet 上下文</span><br></pre></td></tr></table></figure>
+
+<h3 id="exception"><a href="#exception" class="headerlink" title="exception"></a>exception</h3><p>   Exception             封装异常信息的对象 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getMessage()   获取异常消息 </span><br><span class="line">    只有 isErrorPage&#x3D;&quot;true&quot;  才可以使用exception对象 </span><br><span class="line">errorPage  如果发生错误 就跳转到错误页面    局部异常处理 </span><br><span class="line">还可以通过  配置 web.xml  配置全局异常处理</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年09月11日 10:46</p>
+        <p>最后更新： 2020年09月11日 11:02</p>
         <p>原始链接： <a class="post-url" href="/2020/09/11/JavaEE%E7%9A%849%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" title="JavaEE的9大内置对象">http://fangpengcheng.com/2020/09/11/JavaEE%E7%9A%849%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/</a></p>
         <footer>
             <a href="http://fangpengcheng.com">
@@ -235,6 +261,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#out"><span class="post-toc-text">out</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#request"><span class="post-toc-text">request</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#response"><span class="post-toc-text">response</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session"><span class="post-toc-text">session</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pageContext"><span class="post-toc-text">pageContext</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#page"><span class="post-toc-text">page</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#application"><span class="post-toc-text">application</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#config"><span class="post-toc-text">config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#exception"><span class="post-toc-text">exception</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   

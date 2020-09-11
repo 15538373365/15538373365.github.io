@@ -142,7 +142,11 @@
         </div>
         <div class="article-feed">
             <p>
-                
+                pageContext只能在当前jsp页面中使用（当前页面）
+request 只能在同一个请求中使用（转发）
+session只能在同一个会话（session对象）中使用（私有的）
+application只能在同一个web应用中使用。（全局的）
+
             </p>
         </div>
       
@@ -197,7 +201,12 @@
         </div>
         <div class="article-feed">
             <p>
-                
+                out  JspWriter             向jsp对应位置输出内容
+12println    writePrintWriter   不管出现在哪里 都是从头开始写内容
+
+
+request  HttpServletRequest    封装Http请求信息的对象 
+1234567891011121314151617181920getParameter(&quot...
             </p>
         </div>
       
